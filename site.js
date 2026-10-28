@@ -116,75 +116,103 @@ const pageContent = {
           </div>
           <figure class="intro-art" data-parallax="0.04">
             <svg viewBox="0 0 480 390" role="img" aria-labelledby="idea-art-title idea-art-desc">
-              <title id="idea-art-title">How Kevin turns AI into useful project work</title>
-              <desc id="idea-art-desc">A project idea is shaped with useful context, tested in an app, and refined with careful human review before it is ready to use.</desc>
+              <title id="idea-art-title">A learner and coach bring an app idea to life</title>
+              <desc id="idea-art-desc">The learner sketches an idea while a coach shares guidance from a laptop, turning their notes into a working app they can keep improving.</desc>
               <defs>
-                <linearGradient id="idea-wash" x1="62" y1="45" x2="420" y2="352" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#f4c746" stop-opacity=".25" />
-                  <stop offset=".58" stop-color="#fffdfa" stop-opacity=".62" />
-                  <stop offset="1" stop-color="#ba6448" stop-opacity=".1" />
+                <linearGradient id="idea-wash" x1="58" y1="44" x2="422" y2="350" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#f4c746" stop-opacity=".3" />
+                  <stop offset=".55" stop-color="#fffdfa" stop-opacity=".75" />
+                  <stop offset="1" stop-color="#ba6448" stop-opacity=".14" />
                 </linearGradient>
-                <filter id="idea-shadow" x="25" y="36" width="442" height="334" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-                  <feDropShadow dx="0" dy="11" stdDeviation="9" flood-color="#16233b" flood-opacity=".12" />
+                <filter id="idea-shadow" x="20" y="24" width="445" height="350" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+                  <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#16233b" flood-opacity=".13" />
                 </filter>
               </defs>
-              <path d="M251 25c89-2 165 40 192 113 31 83-9 176-86 210-74 33-189 26-280-14C8 297 4 196 42 113 77 37 154 28 251 25Z" fill="url(#idea-wash)" />
-              <path d="M34 283c36 0 44-37 75-52 27-13 45 4 66-7 27-14 23-67 57-82 29-13 51 11 77 3 29-9 42-53 74-57 26-3 43 17 72 18" fill="none" stroke="#ba6448" stroke-opacity=".53" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="2 7" />
-              <path d="M34 291c40 0 47-35 78-50 26-12 43 5 66-7 27-14 25-63 57-77 28-12 51 11 77 3 29-9 42-50 73-54 24-3 44 16 70 17" fill="none" stroke="#16233b" stroke-opacity=".13" stroke-width="1.1" stroke-linecap="round" />
-              <circle cx="34" cy="283" r="6" fill="#e98137" stroke="#fbf5eb" stroke-width="4" />
+              <path d="M246 27c91-8 171 36 199 108 30 77-5 160-71 203-77 49-196 42-283 4C18 307 7 224 36 145 67 60 153 35 246 27Z" fill="url(#idea-wash)" />
+              <path d="M30 300c55-2 55-31 97-40 39-9 53 9 84-6 37-18 37-75 81-84 30-6 45 12 68 3 22-9 34-48 66-51 18-2 30 5 40 12" fill="none" stroke="#ba6448" stroke-opacity=".5" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 7" />
+              <path d="M30 307c58-2 59-28 100-37 38-8 53 10 84-6 38-19 40-71 81-80 28-6 45 11 68 2 23-9 36-45 66-48 17-2 29 5 38 11" fill="none" stroke="#16233b" stroke-opacity=".13" stroke-width="1.2" stroke-linecap="round" />
+              <circle cx="30" cy="300" r="6" fill="#e98137" stroke="#fbf5eb" stroke-width="4" />
 
-              <g transform="rotate(-7 95 205)" filter="url(#idea-shadow)">
-                <path d="M55 155 144 150l9 104-92 8Z" fill="#e7d8c5" fill-opacity=".48" />
-                <path d="M49 148 138 143l9 104-92 8Z" fill="#fffdfa" stroke="#16233b" stroke-opacity=".52" stroke-width="1.4" stroke-linejoin="round" />
-                <path d="m62 171 29-2m-29 9 42-3m-42 9 24-2" stroke="#ba6448" stroke-width="2" stroke-linecap="round" />
-                <path d="m64 211 15-14 12 10 12-17 21 22-1 17-56 3Z" fill="#f4c746" fill-opacity=".78" stroke="#16233b" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round" />
-                <path d="M64 235h35" stroke="#16233b" stroke-opacity=".36" stroke-width="1.7" stroke-linecap="round" />
-                <circle cx="126" cy="164" r="5" fill="#e98137" />
+              <!-- A familiar little studio: the learner at the table, Kevin on the call, and their idea becoming a real app. -->
+              <g>
+                <!-- plant -->
+                <path d="M68 176c-15-17-24-32-20-40 12 2 23 13 27 29 2-24 13-38 23-39 5 13-3 30-19 44 17-10 32-11 39-4-7 13-24 19-43 16l-2 23H67l-1-24Z" fill="#568b68" stroke="#16233b" stroke-width="1.6" stroke-linejoin="round" />
+                <path d="m58 150 15 23m18-39-13 36m39-20-35 18" fill="none" stroke="#d8e3c9" stroke-width="1.5" stroke-linecap="round" />
+                <path d="m59 202 38-1-4 25H63Z" fill="#fffdfa" stroke="#16233b" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="m58 202 40-1-2 7-36 1Z" fill="#e7d8c5" stroke="#16233b" stroke-width="1.2" />
+
+                <!-- yellow chair and wheels -->
+                <path d="M117 211c0-13 8-22 21-22h43c13 0 22 9 22 22v55c0 9-6 15-15 15h-54c-10 0-17-7-17-17Z" fill="#f4c746" stroke="#16233b" stroke-width="2.2" stroke-linejoin="round" />
+                <path d="m143 278 1 23m35-22 3 22m-39 0 38 1m-19-1-25 12m25-12 26 12m-26-12v14" fill="none" stroke="#16233b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="117" cy="316" r="5" fill="#fffdfa" stroke="#16233b" stroke-width="2" />
+                <circle cx="205" cy="315" r="5" fill="#fffdfa" stroke="#16233b" stroke-width="2" />
+                <circle cx="165" cy="328" r="5" fill="#fffdfa" stroke="#16233b" stroke-width="2" />
+
+                <!-- laptop with Kevin on screen -->
+                <path d="m181 95 91 10-5 91-91-9Z" fill="#16233b" stroke="#16233b" stroke-width="2.5" stroke-linejoin="round" />
+                <path d="m187 102 79 9-4 72-79-8Z" fill="#fff8e9" />
+                <path d="M190 113c16-6 53-3 72 1l-3 50c-18-3-52-5-72-2Z" fill="#d9e6ed" />
+                <path d="M193 153c13-13 23-18 34-16 10 1 17 12 33 15l-1 11c-22-2-47-4-67-2Z" fill="#f4c746" />
+                <!-- coach head, hair, glasses -->
+                <path d="M220 124c-1-11 6-19 17-19 12 1 18 9 16 21l-5 12-22-2Z" fill="#16233b" />
+                <ellipse cx="237" cy="124" rx="13" ry="15" fill="#d98b5f" stroke="#16233b" stroke-width="1.5" />
+                <path d="M224 122c1-12 7-17 16-17 8 0 14 5 15 13l-9-5-8 4-8-3Z" fill="#16233b" />
+                <path d="M229 123h8m3 0h8m-11 0h3" fill="none" stroke="#16233b" stroke-width="1.8" stroke-linecap="round" />
+                <circle cx="233" cy="124" r="3.2" fill="none" stroke="#16233b" stroke-width="1.2" />
+                <circle cx="244" cy="124" r="3.2" fill="none" stroke="#16233b" stroke-width="1.2" />
+                <path d="M235 133c3 2 6 2 9 0" fill="none" stroke="#16233b" stroke-width="1.2" stroke-linecap="round" />
+                <path d="m176 196 105 10-14 9-99-10Z" fill="#b9c4cc" stroke="#16233b" stroke-width="2" stroke-linejoin="round" />
+                <path d="m185 198 82 8m-72-3 8 1" stroke="#fffdfa" stroke-opacity=".75" stroke-width="1.3" stroke-linecap="round" />
+
+                <!-- learner, same bun, warm skin, cream shirt, and rust trousers as the hero -->
+                <path d="M136 179c-2-16 8-29 24-31 17-2 30 10 31 25l-7 20-43 3Z" fill="#16233b" />
+                <circle cx="148" cy="161" r="15" fill="#16233b" />
+                <path d="M132 177c-1-11 5-20 15-23 13-5 27 2 31 14-8-4-13-11-16-14-5 10-15 16-30 23Z" fill="#16233b" />
+                <path d="M145 168c9-4 20 1 23 11 3 10-3 22-13 25-9 2-18-5-19-15-1-9 2-17 9-21Z" fill="#c97c52" stroke="#16233b" stroke-width="1.5" />
+                <path d="M161 181c5-2 8 1 7 5-1 3-4 4-7 3" fill="none" stroke="#16233b" stroke-width="1.3" />
+                <circle cx="157" cy="180" r="1.6" fill="#16233b" />
+                <path d="M141 201c-12 3-20 12-22 25l-1 27c19 10 43 14 69 8l-4-40c-2-13-11-21-23-22l-8 9Z" fill="#fff8ed" stroke="#16233b" stroke-width="2.2" stroke-linejoin="round" />
+                <path d="M133 249c-2 12 5 25 20 29l28-1 19 32c5 8 14 9 20 5 7-5 5-13 0-20l-22-36c-4-7-11-10-19-9l-18 4-10-8Z" fill="#df7958" stroke="#16233b" stroke-width="2.2" stroke-linejoin="round" />
+                <path d="M153 267c7 4 14 7 23 9" fill="none" stroke="#d6c4b2" stroke-width="1.6" stroke-linecap="round" />
+
+                <!-- desk and work-in-progress sketch -->
+                <path d="m91 225 302 2 35 25-298 4Z" fill="#f4c746" stroke="#16233b" stroke-width="2.2" stroke-linejoin="round" />
+                <path d="m130 255 298-4-2 12-292 5Z" fill="#e8b73f" stroke="#16233b" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="m119 262-2 48 13 1 3-48m270-7 1 48 13 1 1-50" fill="#e9ad2b" stroke="#16233b" stroke-width="2" stroke-linejoin="round" />
+                <path d="m229 224 72-2 19 17-76 4Z" fill="#fffdfa" stroke="#16233b" stroke-width="1.6" stroke-linejoin="round" />
+                <path d="m245 230 14-1m-14 5 31-1m-25 6 14-1" stroke="#16233b" stroke-opacity=".48" stroke-width="1.5" stroke-linecap="round" />
+                <rect x="268" y="225" width="25" height="12" rx="2" fill="#f4c746" />
+                <path d="m297 221 4-13 5 3-4 13-5 4Z" fill="#df7958" stroke="#16233b" stroke-width="1.2" stroke-linejoin="round" />
+                <path d="m303 211 2-5 3 2-2 5" fill="#16233b" />
+
+                <!-- the learner reaches across the table to mark up the sketch -->
+                <path d="M174 218c10-3 18 1 25 9l17 13 26-10c6-2 11 0 12 4 0 4-4 7-10 10l-24 10c-8 3-16 0-23-5l-21-15Z" fill="#fff8ed" stroke="#16233b" stroke-width="2.1" stroke-linejoin="round" />
+                <path d="M239 230c7-4 12-4 16-1l5-4c3-2 6 0 5 3l-7 10-12 7-10-7Z" fill="#c97c52" stroke="#16233b" stroke-width="1.6" stroke-linejoin="round" />
+                <path d="m252 234 22-27 5 4-22 27Z" fill="#f4c746" stroke="#16233b" stroke-width="1.4" stroke-linejoin="round" />
+                <path d="m274 207 4-6 3 2-4 6" fill="#ba6448" stroke="#16233b" stroke-width="1" stroke-linejoin="round" />
+
+                <!-- finished app floating nearby, a small echo of the hero screens -->
+                <g transform="rotate(5 361 167)" filter="url(#idea-shadow)">
+                  <rect x="319" y="92" width="111" height="132" rx="9" fill="#fffdfa" stroke="#16233b" stroke-width="1.8" />
+                  <path d="M320 111h109" stroke="#16233b" stroke-width="1.4" />
+                  <circle cx="329" cy="102" r="2.2" fill="#ba6448" /><circle cx="337" cy="102" r="2.2" fill="#f4c746" /><circle cx="345" cy="102" r="2.2" fill="#829c70" />
+                  <rect x="330" y="122" width="89" height="49" rx="4" fill="#f4eee4" />
+                  <path d="m337 158 15-16 12 9 12-13 17 20Z" fill="#e98259" />
+                  <circle cx="399" cy="133" r="5" fill="#f4c746" />
+                  <path d="M331 181h69m-69 7h49" stroke="#16233b" stroke-opacity=".55" stroke-width="1.8" stroke-linecap="round" />
+                  <rect x="331" y="199" width="31" height="12" rx="4" fill="#f4c746" />
+                  <rect x="367" y="199" width="25" height="12" rx="4" fill="#ba6448" fill-opacity=".72" />
+                  <rect x="397" y="199" width="21" height="12" rx="4" fill="#e7d8c5" />
+                </g>
               </g>
 
-              <g transform="rotate(3 239 131)" filter="url(#idea-shadow)">
-                <path d="m167 73 12-8h119l10 9v124l-9 8H170l-8-8V83Z" fill="#eadfce" fill-opacity=".7" />
-                <path d="m158 67 12-8h119l10 9v124l-9 8H161l-8-8V77Z" fill="#fffdfa" stroke="#16233b" stroke-opacity=".68" stroke-width="1.5" stroke-linejoin="round" />
-                <path d="M153 81h146" stroke="#16233b" stroke-opacity=".18" />
-                <circle cx="167" cy="72" r="2.5" fill="#ba6448" />
-                <circle cx="176" cy="72" r="2.5" fill="#f4c746" />
-                <text x="169" y="99" fill="#66758a" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.2">PROJECT CONTEXT</text>
-                <path d="M169 110h91m-91 8h113m-113 8h72" stroke="#16233b" stroke-opacity=".42" stroke-width="2" stroke-linecap="round" />
-                <rect x="169" y="140" width="52" height="23" rx="4" fill="#f5e5c3" />
-                <path d="M178 151h34" stroke="#9a5a25" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" />
-                <rect x="226" y="140" width="52" height="23" rx="4" fill="#e7efeb" />
-                <path d="M235 151h34" stroke="#557970" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" />
-                <path d="M169 177h73m-73 7h45" stroke="#16233b" stroke-opacity=".25" stroke-width="1.7" stroke-linecap="round" />
-              </g>
-
-              <g transform="rotate(4 367 222)" filter="url(#idea-shadow)">
-                <rect x="286" y="105" width="147" height="224" rx="9" fill="#fffdfa" stroke="#16233b" stroke-width="1.7" />
-                <path d="M287 129h145" stroke="#16233b" stroke-width="1.5" />
-                <circle cx="300" cy="117" r="2.4" fill="#ba6448" />
-                <circle cx="309" cy="117" r="2.4" fill="#f4c746" />
-                <rect x="300" y="143" width="119" height="42" rx="4" fill="#f4eee4" />
-                <circle cx="315" cy="164" r="8" fill="#f4c746" />
-                <path d="M330 158h61m-61 8h42" stroke="#16233b" stroke-opacity=".68" stroke-width="2" stroke-linecap="round" />
-                <path d="M300 201h78" stroke="#16233b" stroke-opacity=".75" stroke-width="2.2" stroke-linecap="round" />
-                <path d="M300 213h111" stroke="#16233b" stroke-opacity=".22" stroke-width="1.5" />
-                <rect x="300" y="225" width="119" height="25" rx="4" fill="#f8f3ec" stroke="#16233b" stroke-opacity=".12" />
-                <circle cx="312" cy="237" r="4" fill="#e98137" />
-                <path d="M323 234h59m-59 6h39" stroke="#16233b" stroke-opacity=".48" stroke-width="1.7" stroke-linecap="round" />
-                <rect x="300" y="258" width="119" height="25" rx="4" fill="#f7f0e5" />
-                <circle cx="312" cy="270" r="4" fill="#829c70" />
-                <path d="M323 267h71m-71 6h48" stroke="#16233b" stroke-opacity=".48" stroke-width="1.7" stroke-linecap="round" />
-                <rect x="300" y="294" width="56" height="20" rx="4" fill="#f4c746" />
-                <path d="M312 304h31" stroke="#16233b" stroke-width="1.8" stroke-linecap="round" />
-              </g>
-
-              <g transform="rotate(-8 280 217)">
-                <path d="m268 201 16 14-14 4-4 14-14-16 6-5 5-11Z" fill="#fffdfa" stroke="#16233b" stroke-width="1.4" stroke-linejoin="round" />
-                <path d="m258 216 7 7" stroke="#ba6448" stroke-width="1.8" stroke-linecap="round" />
-              </g>
-              <g transform="rotate(6 419 94)">
-                <rect x="399" y="72" width="43" height="43" rx="10" fill="#fffdfa" stroke="#ba6448" stroke-opacity=".52" />
-                <path d="m410 94 7 7 14-17" fill="none" stroke="#ba6448" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="441" cy="74" r="3" fill="#f4c746" stroke="#16233b" stroke-width="1" />
+              <!-- a few lively details make the scene feel like a shared session -->
+              <path d="M285 101c8-10 16-12 24-8" fill="none" stroke="#ba6448" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="2 5" />
+              <circle cx="311" cy="93" r="3.5" fill="#e98137" />
+              <g transform="rotate(7 410 78)" filter="url(#idea-shadow)">
+                <rect x="394" y="62" width="36" height="34" rx="9" fill="#fffdfa" stroke="#ba6448" stroke-opacity=".58" stroke-width="1.4" />
+                <path d="m403 79 5 5 12-13" fill="none" stroke="#ba6448" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="431" cy="64" r="3" fill="#f4c746" stroke="#16233b" stroke-width="1" />
               </g>
             </svg>
           </figure>
