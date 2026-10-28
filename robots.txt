@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maverick1o.github.io/KPL/sitemap.xml
