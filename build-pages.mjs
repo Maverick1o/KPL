@@ -18,14 +18,13 @@ for (const [file, page] of Object.entries(pages)) {
   const marker = '<div id="site">';
   const mountStart = html.indexOf(marker);
   const bodyEnd = html.indexOf("</body>");
-  const mountEnd = html.lastIndexOf("</div>", bodyEnd);
-  if (mountStart < 0 || bodyEnd < 0 || mountEnd < mountStart) throw new Error(`Missing site mount in ${file}`);
+  if (mountStart < 0 || bodyEnd < 0 || bodyEnd < mountStart) throw new Error(`Missing site mount in ${file}`);
   const markup = renderSite(page)
     .replace("<span data-year></span>", `<span data-year>${year}</span>`)
     .split("\n")
     .map((line) => line.trimEnd())
     .join("\n");
-  const output = html.slice(0, mountStart) + marker + markup + html.slice(mountEnd + "</div>".length);
+  const output = html.slice(0, mountStart) + marker + markup + "</div>\n" + html.slice(bodyEnd);
   await writeFile(file, output);
   console.log(`Rendered ${file}`);
 }
