@@ -486,16 +486,39 @@ const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "local
 async function emailFormSubmission(values) {
   const payload = Object.fromEntries(values.entries());
   if (payload.email) payload._replyto = payload.email;
+  payload._url = `${window.location.origin}${window.location.pathname}`;
   const response = await fetch(formEndpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(payload),
   });
-  const result = await response.json();
+  let result;
+  try {
+    result = await response.json();
+  } catch {
+    throw new Error(`The form service returned an unreadable response (${response.status}).`);
+  }
   if (!response.ok || result.success === false || result.success === "false") {
-    throw new Error("The form service did not accept the submission.");
+    throw new Error(result.message || `The form service did not accept the submission (${response.status}).`);
   }
   return result;
+}
+
+function bookingRequestFailureMessage(error) {
+  const message = error instanceof Error ? error.message : "";
+  const normalized = message.toLowerCase();
+  if (normalized.includes("activation")) {
+    return "FormSubmit is waiting for inbox confirmation. Check for its activation email, including in spam, then try again.";
+  }
+  if (normalized.includes("web server") || normalized.includes("html files") || normalized.includes("referer")) {
+    return "FormSubmit couldn’t verify this page. Open the published website (not a local HTML file) and try again.";
+  }
+  if (normalized.includes("failed to fetch") || normalized.includes("networkerror")) {
+    return "Couldn’t connect to the form service. Check your connection and try again.";
+  }
+  return message
+    ? `FormSubmit rejected the request: ${message} Please try again or DM Kevin on Instagram.`
+    : "The request didn’t go through. Please try again or DM Kevin on Instagram.";
 }
 
 if (preferredTimeInput) {
@@ -528,9 +551,9 @@ bookingRequestForm?.addEventListener("submit", async (event) => {
     preferredTimeInput.min = new Date(Date.now() - new Date().getTimezoneOffset() * 60_000).toISOString().slice(0, 16);
     timeZoneInput.value = localTimeZone;
     bookingRequestStatus.textContent = "Thanks—your time request is in. Kevin will confirm or suggest another time, then send prep details and a payment link.";
-  } catch {
+  } catch (error) {
     bookingRequestStatus.classList.add("is-error");
-    bookingRequestStatus.textContent = "That didn’t go through. Please try again or email Kevin directly.";
+    bookingRequestStatus.textContent = bookingRequestFailureMessage(error);
   } finally {
     submit.disabled = false;
   }
