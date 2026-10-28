@@ -111,51 +111,80 @@ const pageContent = {
         <div class="shell intro-grid">
           <div class="intro-copy">
             <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> THE IDEA</p>
-            <h2>You don’t need another person to build your idea.<br /><span>You need someone to show you how to move it forward.</span></h2>
-            <p class="section-lede">We’ll build a real project together—and share the workflows and problem-solving habits to keep building on your own.</p>
+            <h2>Thousands of hours putting AI to work on <span>real projects.</span></h2>
+            <p class="section-lede">I’ve learned how to give AI the right context, structure the work, catch mistakes, and keep projects moving. I’ll help you apply those methods to your idea—and keep building with confidence.</p>
           </div>
           <figure class="intro-art" data-parallax="0.04">
             <svg viewBox="0 0 480 390" role="img" aria-labelledby="idea-art-title idea-art-desc">
-              <title id="idea-art-title">An idea becoming a working digital product</title>
-              <desc id="idea-art-desc">A sketch, a set of evolving interface panels, and a finished screen linked by a hand-drawn path.</desc>
+              <title id="idea-art-title">How Kevin turns AI into useful project work</title>
+              <desc id="idea-art-desc">A project idea is shaped with useful context, tested in an app, and refined with careful human review before it is ready to use.</desc>
               <defs>
-                <linearGradient id="idea-wash" x1="80" y1="52" x2="424" y2="348" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#f4c746" stop-opacity=".22" />
-                  <stop offset="1" stop-color="#ba6448" stop-opacity=".08" />
+                <linearGradient id="idea-wash" x1="62" y1="45" x2="420" y2="352" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#f4c746" stop-opacity=".25" />
+                  <stop offset=".58" stop-color="#fffdfa" stop-opacity=".62" />
+                  <stop offset="1" stop-color="#ba6448" stop-opacity=".1" />
                 </linearGradient>
-                <filter id="idea-shadow" x="72" y="58" width="400" height="310" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-                  <feDropShadow dx="0" dy="15" stdDeviation="12" flood-color="#16233b" flood-opacity=".12" />
+                <filter id="idea-shadow" x="25" y="36" width="442" height="334" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+                  <feDropShadow dx="0" dy="11" stdDeviation="9" flood-color="#16233b" flood-opacity=".12" />
                 </filter>
               </defs>
-              <path d="M237 30c97 0 178 61 202 143 23 82-17 159-88 185-72 26-185 12-262-24C13 294 12 190 61 106 98 43 159 30 237 30Z" fill="url(#idea-wash)" />
-              <path d="M42 278c54-7 54-70 101-81 39-9 56 19 93 16 39-4 51-75 103-91 31-10 54 0 91 9" fill="none" stroke="#ba6448" stroke-opacity=".56" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2 7" />
-              <path d="M42 288c52-6 62-67 102-77 38-10 57 20 94 16 43-4 56-73 104-87 32-10 54-1 89 8" fill="none" stroke="#16233b" stroke-opacity=".14" stroke-width="1.1" stroke-linecap="round" />
-              <circle cx="42" cy="278" r="6" fill="#e98137" stroke="#fbf5eb" stroke-width="4" />
-              <g transform="rotate(-8 169 167)" filter="url(#idea-shadow)">
-                <rect x="103" y="112" width="139" height="111" rx="5" fill="#fffdfa" stroke="#16233b" stroke-opacity=".48" stroke-width="1.4" />
-                <path d="M103 128h139" stroke="#16233b" stroke-opacity=".2" />
-                <circle cx="115" cy="120" r="2" fill="#ba6448" />
-                <circle cx="123" cy="120" r="2" fill="#e98137" />
-                <path d="m120 155 20-13 17 19 13-8 22 23h-72v-21Z" fill="#f4c746" fill-opacity=".72" stroke="#16233b" stroke-opacity=".5" stroke-width="1.2" stroke-linejoin="round" />
-                <path d="M120 190h51m-51 8h34" stroke="#16233b" stroke-opacity=".38" stroke-width="2" stroke-linecap="round" />
+              <path d="M251 25c89-2 165 40 192 113 31 83-9 176-86 210-74 33-189 26-280-14C8 297 4 196 42 113 77 37 154 28 251 25Z" fill="url(#idea-wash)" />
+              <path d="M34 283c36 0 44-37 75-52 27-13 45 4 66-7 27-14 23-67 57-82 29-13 51 11 77 3 29-9 42-53 74-57 26-3 43 17 72 18" fill="none" stroke="#ba6448" stroke-opacity=".53" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="2 7" />
+              <path d="M34 291c40 0 47-35 78-50 26-12 43 5 66-7 27-14 25-63 57-77 28-12 51 11 77 3 29-9 42-50 73-54 24-3 44 16 70 17" fill="none" stroke="#16233b" stroke-opacity=".13" stroke-width="1.1" stroke-linecap="round" />
+              <circle cx="34" cy="283" r="6" fill="#e98137" stroke="#fbf5eb" stroke-width="4" />
+
+              <g transform="rotate(-7 95 205)" filter="url(#idea-shadow)">
+                <path d="M55 155 144 150l9 104-92 8Z" fill="#e7d8c5" fill-opacity=".48" />
+                <path d="M49 148 138 143l9 104-92 8Z" fill="#fffdfa" stroke="#16233b" stroke-opacity=".52" stroke-width="1.4" stroke-linejoin="round" />
+                <path d="m62 171 29-2m-29 9 42-3m-42 9 24-2" stroke="#ba6448" stroke-width="2" stroke-linecap="round" />
+                <path d="m64 211 15-14 12 10 12-17 21 22-1 17-56 3Z" fill="#f4c746" fill-opacity=".78" stroke="#16233b" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round" />
+                <path d="M64 235h35" stroke="#16233b" stroke-opacity=".36" stroke-width="1.7" stroke-linecap="round" />
+                <circle cx="126" cy="164" r="5" fill="#e98137" />
               </g>
-              <g transform="rotate(5 356 192)" filter="url(#idea-shadow)">
-                <rect x="277" y="91" width="143" height="210" rx="8" fill="#fffdfa" stroke="#16233b" stroke-width="1.6" />
-                <path d="M278 112h141" stroke="#16233b" stroke-width="1.5" />
-                <circle cx="290" cy="102" r="2.2" fill="#16233b" />
-                <circle cx="299" cy="102" r="2.2" fill="#16233b" />
-                <circle cx="308" cy="102" r="2.2" fill="#16233b" />
-                <rect x="293" y="131" width="110" height="73" rx="3" fill="#f3e8d9" />
-                <path d="m302 189 24-28 20 18 13-10 35 25h-92v-5Z" fill="#e98137" fill-opacity=".83" />
-                <circle cx="376" cy="149" r="8" fill="#f4c746" />
-                <path d="M294 222h64m-64 9h86" stroke="#16233b" stroke-opacity=".7" stroke-width="2" stroke-linecap="round" />
-                <rect x="294" y="250" width="32" height="25" rx="3" fill="#f4c746" />
-                <rect x="334" y="250" width="32" height="25" rx="3" fill="#ba6448" fill-opacity=".78" />
-                <rect x="374" y="250" width="29" height="25" rx="3" fill="#f3e8d9" />
+
+              <g transform="rotate(3 239 131)" filter="url(#idea-shadow)">
+                <path d="m167 73 12-8h119l10 9v124l-9 8H170l-8-8V83Z" fill="#eadfce" fill-opacity=".7" />
+                <path d="m158 67 12-8h119l10 9v124l-9 8H161l-8-8V77Z" fill="#fffdfa" stroke="#16233b" stroke-opacity=".68" stroke-width="1.5" stroke-linejoin="round" />
+                <path d="M153 81h146" stroke="#16233b" stroke-opacity=".18" />
+                <circle cx="167" cy="72" r="2.5" fill="#ba6448" />
+                <circle cx="176" cy="72" r="2.5" fill="#f4c746" />
+                <text x="169" y="99" fill="#66758a" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.2">PROJECT CONTEXT</text>
+                <path d="M169 110h91m-91 8h113m-113 8h72" stroke="#16233b" stroke-opacity=".42" stroke-width="2" stroke-linecap="round" />
+                <rect x="169" y="140" width="52" height="23" rx="4" fill="#f5e5c3" />
+                <path d="M178 151h34" stroke="#9a5a25" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" />
+                <rect x="226" y="140" width="52" height="23" rx="4" fill="#e7efeb" />
+                <path d="M235 151h34" stroke="#557970" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" />
+                <path d="M169 177h73m-73 7h45" stroke="#16233b" stroke-opacity=".25" stroke-width="1.7" stroke-linecap="round" />
               </g>
-              <g transform="rotate(-7 224 109)">
-                <rect x="214" y="92" width="32" height="32" rx="4" fill="#fbf5eb" stroke="#ba6448" stroke-opacity=".5" />
-                <path d="m222 108 6 6 11-13" stroke="#ba6448" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+
+              <g transform="rotate(4 367 222)" filter="url(#idea-shadow)">
+                <rect x="286" y="105" width="147" height="224" rx="9" fill="#fffdfa" stroke="#16233b" stroke-width="1.7" />
+                <path d="M287 129h145" stroke="#16233b" stroke-width="1.5" />
+                <circle cx="300" cy="117" r="2.4" fill="#ba6448" />
+                <circle cx="309" cy="117" r="2.4" fill="#f4c746" />
+                <rect x="300" y="143" width="119" height="42" rx="4" fill="#f4eee4" />
+                <circle cx="315" cy="164" r="8" fill="#f4c746" />
+                <path d="M330 158h61m-61 8h42" stroke="#16233b" stroke-opacity=".68" stroke-width="2" stroke-linecap="round" />
+                <path d="M300 201h78" stroke="#16233b" stroke-opacity=".75" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M300 213h111" stroke="#16233b" stroke-opacity=".22" stroke-width="1.5" />
+                <rect x="300" y="225" width="119" height="25" rx="4" fill="#f8f3ec" stroke="#16233b" stroke-opacity=".12" />
+                <circle cx="312" cy="237" r="4" fill="#e98137" />
+                <path d="M323 234h59m-59 6h39" stroke="#16233b" stroke-opacity=".48" stroke-width="1.7" stroke-linecap="round" />
+                <rect x="300" y="258" width="119" height="25" rx="4" fill="#f7f0e5" />
+                <circle cx="312" cy="270" r="4" fill="#829c70" />
+                <path d="M323 267h71m-71 6h48" stroke="#16233b" stroke-opacity=".48" stroke-width="1.7" stroke-linecap="round" />
+                <rect x="300" y="294" width="56" height="20" rx="4" fill="#f4c746" />
+                <path d="M312 304h31" stroke="#16233b" stroke-width="1.8" stroke-linecap="round" />
+              </g>
+
+              <g transform="rotate(-8 280 217)">
+                <path d="m268 201 16 14-14 4-4 14-14-16 6-5 5-11Z" fill="#fffdfa" stroke="#16233b" stroke-width="1.4" stroke-linejoin="round" />
+                <path d="m258 216 7 7" stroke="#ba6448" stroke-width="1.8" stroke-linecap="round" />
+              </g>
+              <g transform="rotate(6 419 94)">
+                <rect x="399" y="72" width="43" height="43" rx="10" fill="#fffdfa" stroke="#ba6448" stroke-opacity=".52" />
+                <path d="m410 94 7 7 14-17" fill="none" stroke="#ba6448" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="441" cy="74" r="3" fill="#f4c746" stroke="#16233b" stroke-width="1" />
               </g>
             </svg>
           </figure>
