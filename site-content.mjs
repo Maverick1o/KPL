@@ -400,7 +400,107 @@ const pageContent = {
   about: `
     <main id="main">
       <section class="about-hero"><div class="shell about-grid"><div class="about-intro"><p class="eyebrow"><span class="eyebrow-dot"></span> ABOUT KEVIN · BUILDER, AI PRACTITIONER, COACH</p><h1>Thousands of hours putting AI to work.<br /><span>Now I’m sharing the playbook.</span></h1><p class="hero-lede">I’m Kevin. I build real software with AI, and I love the moment an idea starts to click. I’ll help you get there—and understand how to keep going.</p><div class="about-hero-actions"><a class="button button-dark" href="booking.html#booking-widget">Request a first session <span aria-hidden="true">↗</span></a><a class="linkedin-profile-link" href="https://www.linkedin.com/in/kevinkirkland11/" target="_blank" rel="noopener noreferrer"><span class="linkedin-mark" aria-hidden="true">in</span><span><b>Connect on LinkedIn</b><small>More about my work</small></span><span class="linkedin-arrow" aria-hidden="true">↗</span></a></div></div><aside class="about-profile" aria-label="Kevin Kirkland and his experience"><figure class="about-portrait"><img src="assets/kevin-kirkland-portrait.png" width="1055" height="1490" fetchpriority="high" decoding="async" alt="Kevin Kirkland smiling outdoors in warm evening light." /><figcaption><span class="about-portrait-dot" aria-hidden="true"></span><span><b>Kevin Kirkland</b><small>Software builder · AI coach</small></span></figcaption></figure><div class="about-proof-card"><p class="eyebrow">BUILT BY DOING</p><div class="about-stat-card"><div><strong>50+</strong><span>apps and SaaS products built or supported</span></div><div><strong>1,000s</strong><span>hours putting AI to work on real projects</span></div></div><p class="about-proof-note"><span aria-hidden="true">✳</span> Practical lessons from real builds—not just prompt experiments.</p></div></aside></div></section>
-      <section class="section about-story-section"><div class="shell about-story"><div class="about-story-copy"><p class="eyebrow">HOW I WORK</p><h2>The magic is in the work behind the prompt.</h2><p class="section-lede">Good results take more than a clever prompt. You need to shape the problem, give AI the right context, judge its work, and know what to do when it gets stuck. I learned that by building real projects—and I’ll teach you as we build yours.</p><div class="about-story-actions"><a class="text-link" href="pricing.html">See how coaching works <span aria-hidden="true">↗</span></a><a class="text-link" href="contact.html">Ask Kevin a question <span aria-hidden="true">↗</span></a></div></div><aside class="about-human-card"><p class="eyebrow">A LITTLE OFF-SCREEN</p><h3>Usually outside, camera close by.</h3><p>I’m happiest biking, skiing, fishing, taking photos, or cheering on my kids. I bring that same curiosity and easygoing energy to our sessions—serious about your idea, relaxed about the learning curve.</p><div class="about-interest-list" aria-label="Kevin’s interests"><span>Bike rides</span><span>Ski days</span><span>Fishing</span><span>Photography</span><span>Kids’ games</span></div></aside></div></section>
+      <section class="about-method-section">
+        <div class="shell about-method-grid">
+          <div class="about-method-copy">
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> HOW I WORK</p>
+            <h2>The magic is in the work <span>behind the prompt.</span></h2>
+            <p class="section-lede">Good results take more than a clever prompt. You need to shape the problem, give AI useful context, assess its work, and know how to course-correct. I’ve built that judgment on real software projects—and I’ll show you how to use it on yours.</p>
+            <p class="about-method-note"><span aria-hidden="true">✳</span> Real project instincts, taught while we build.</p>
+            <a class="text-link" href="pricing.html">See how coaching works <span aria-hidden="true">↗</span></a>
+          </div>
+          <figure class="about-method-art">
+            <svg viewBox="0 0 700 520" role="img" aria-labelledby="about-workflow-title about-workflow-desc">
+              <title id="about-workflow-title">The work behind a useful AI result</title>
+              <desc id="about-workflow-desc">A project idea moves through context, an AI build session, and human review before becoming a useful next step. Two collaborators stay connected throughout the process.</desc>
+              <defs>
+                <linearGradient id="workflow-wash" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7e8c8"/><stop offset=".56" stop-color="#f7eee3"/><stop offset="1" stop-color="#e4edeb"/></linearGradient>
+                <linearGradient id="workflow-screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffdf9"/><stop offset="1" stop-color="#f4f7f1"/></linearGradient>
+                <filter id="workflow-shadow" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="11" flood-color="#26364b" flood-opacity=".13"/></filter>
+                <marker id="workflow-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1l5 3-5 3" fill="none" stroke="#bd694d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></marker>
+              </defs>
+              <rect x="12" y="12" width="676" height="496" rx="34" fill="url(#workflow-wash)"/>
+              <circle cx="568" cy="74" r="116" fill="#f4c746" opacity=".14"/>
+              <circle cx="568" cy="74" r="86" fill="none" stroke="#bd694d" stroke-opacity=".15"/>
+              <path d="M52 298c54-37 88-32 130-12s78-20 107-89 82-92 126-41 37 107 95 118 81-13 123-64" fill="none" stroke="#bd694d" stroke-opacity=".58" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round" marker-end="url(#workflow-arrow)"/>
+              <circle cx="52" cy="298" r="6" fill="#e98137" stroke="#fffaf2" stroke-width="4"/>
+              <g filter="url(#workflow-shadow)" transform="rotate(-5 141 180)">
+                <rect x="57" y="95" width="168" height="164" rx="15" fill="#fffaf2" stroke="#d8c9b7" stroke-width="1.5"/>
+                <path d="M57 128h168" stroke="#e7dbce"/>
+                <circle cx="75" cy="112" r="3.5" fill="#bd694d"/><circle cx="88" cy="112" r="3.5" fill="#f4c746"/>
+                <text x="74" y="151" fill="#738096" font-family="monospace" font-size="9" letter-spacing="1.4">YOUR IDEA</text>
+                <path d="M77 174c18-13 28 10 44-1s28 8 45-3" fill="none" stroke="#bd694d" stroke-width="3" stroke-linecap="round"/>
+                <path d="M77 192c20-7 37 6 58-2" fill="none" stroke="#253550" stroke-opacity=".56" stroke-width="3" stroke-linecap="round"/>
+                <path d="M77 210c14-4 23 3 38 0" fill="none" stroke="#253550" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"/>
+                <rect x="167" y="197" width="38" height="36" rx="8" fill="#f9e8b9"/>
+                <path d="M176 219l8-10 7 6 7-9" fill="none" stroke="#bd694d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <g filter="url(#workflow-shadow)">
+                <rect x="249" y="62" width="230" height="254" rx="17" fill="url(#workflow-screen)" stroke="#cbd3d1" stroke-width="1.5"/>
+                <path d="M249 100h230" stroke="#e5e2dc"/>
+                <circle cx="268" cy="81" r="3.5" fill="#bd694d"/><circle cx="281" cy="81" r="3.5" fill="#f4c746"/><circle cx="294" cy="81" r="3.5" fill="#88a38a"/>
+                <text x="270" y="126" fill="#758096" font-family="monospace" font-size="9" letter-spacing="1.4">BUILD SESSION · 01</text>
+                <text x="270" y="159" fill="#16233b" font-family="Arial,sans-serif" font-size="19" font-weight="700">Give the work</text>
+                <text x="270" y="182" fill="#16233b" font-family="Arial,sans-serif" font-size="19" font-weight="700">the right context.</text>
+                <rect x="270" y="201" width="187" height="34" rx="8" fill="#f5eee5"/>
+                <circle cx="284" cy="218" r="4" fill="#e98137"/><path d="M296 214h67M296 222h111" stroke="#718096" stroke-width="3" stroke-linecap="round"/>
+                <rect x="270" y="244" width="187" height="34" rx="8" fill="#eaf0eb"/>
+                <circle cx="284" cy="261" r="4" fill="#89a78c"/><path d="M296 257h84M296 265h121" stroke="#718096" stroke-width="3" stroke-linecap="round"/>
+                <path d="M441 113l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#f4c746" stroke="#bd694d" stroke-width="1.5"/>
+              </g>
+              <g filter="url(#workflow-shadow)" transform="rotate(4 553 313)">
+                <rect x="467" y="224" width="177" height="191" rx="15" fill="#fffdf9" stroke="#c9d1cf" stroke-width="1.5"/>
+                <path d="M467 258h177" stroke="#e6e1d9"/>
+                <circle cx="483" cy="241" r="3.2" fill="#bd694d"/><circle cx="495" cy="241" r="3.2" fill="#f4c746"/><circle cx="507" cy="241" r="3.2" fill="#89a78c"/>
+                <text x="484" y="280" fill="#758096" font-family="monospace" font-size="8.5" letter-spacing="1.2">REVIEW &amp; REFINE</text>
+                <rect x="484" y="296" width="142" height="55" rx="8" fill="#f5eee5"/>
+                <path d="M494 327l10-11 10 7 11-13 17 16" fill="none" stroke="#bd694d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M550 315h62M550 323h48" stroke="#697990" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="493" cy="370" r="8" fill="#e7eee6" stroke="#8da78d"/>
+                <path d="M489 370l3 3 5-6" fill="none" stroke="#477052" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M509 368h91M509 376h69" stroke="#738096" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="484" y="388" width="59" height="16" rx="8" fill="#f4c746"/>
+                <text x="496" y="399" fill="#16233b" font-family="monospace" font-size="6.5" letter-spacing=".6">NEXT STEP</text>
+              </g>
+              <g transform="translate(61 360)">
+                <path d="M0 52c2-21 15-32 34-32s32 11 34 32" fill="#dce7e6" stroke="#16233b" stroke-width="2"/>
+                <circle cx="34" cy="15" r="14" fill="#d98a67" stroke="#16233b" stroke-width="2"/>
+                <path d="M62 53c1-19 12-29 28-29s28 10 29 29" fill="#f4c746" stroke="#16233b" stroke-width="2"/>
+                <circle cx="90" cy="12" r="13" fill="#c6825f" stroke="#16233b" stroke-width="2"/>
+                <rect x="14" y="62" width="110" height="25" rx="12.5" fill="#fffaf2" stroke="#e2d7c9"/>
+                <text x="37" y="78" fill="#34435a" font-family="monospace" font-size="8" letter-spacing="1">YOU + KEVIN</text>
+              </g>
+              <g transform="translate(478 76)">
+                <circle cx="41" cy="38" r="31" fill="#fffaf2" stroke="#e3d4c3" stroke-width="1.5"/>
+                <circle cx="41" cy="38" r="22" fill="#f4c746"/>
+                <path d="M31 38l7 7 14-16" fill="none" stroke="#16233b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="70" cy="16" r="5" fill="#e98137"/>
+              </g>
+            </svg>
+            <figcaption><span>IDEA</span><i aria-hidden="true"></i><span>CONTEXT</span><i aria-hidden="true"></i><span>JUDGMENT</span><i aria-hidden="true"></i><span>PROGRESS</span></figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="about-outside-section">
+        <div class="shell about-outside-grid">
+          <figure class="about-outside-photo">
+            <div class="about-outside-photo-frame"><img src="assets/kevin-bike-ride.jpg" width="1440" height="1800" loading="lazy" decoding="async" alt="Kevin smiling on a mountain bike ride through a sunny meadow." /><span class="about-photo-tag"><i aria-hidden="true"></i> OUT FOR A RIDE</span></div>
+            <figcaption>A little time outside keeps the curiosity going.</figcaption>
+          </figure>
+          <div class="about-outside-copy">
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> A LITTLE OFF-SCREEN</p>
+            <h2>Usually outside, <span>camera close by.</span></h2>
+            <p>When I’m not building, I’m happiest on a bike, on a ski hill, fishing, taking photos, or cheering on my kids. It’s how I recharge, stay curious, and come back ready for the next idea.</p>
+            <div class="about-interest-list" aria-label="A few things Kevin enjoys">
+              <span><i aria-hidden="true">🚵</i> Biking</span>
+              <span><i aria-hidden="true">⛷️</i> Skiing</span>
+              <span><i aria-hidden="true">🎣</i> Fishing</span>
+              <span><i aria-hidden="true">📸</i> Photography</span>
+              <span><i aria-hidden="true">👨‍👩‍👧‍👦</i> Family &amp; kids’ games</span>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="quote-band"><div class="shell"><span class="quote-mark">“</span><blockquote>Learn by building something that matters to you.</blockquote><p>That’s the heart of Kirkland Product Lab.</p></div></section>
     </main>
   `,
