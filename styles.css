@@ -1709,7 +1709,7 @@ h1 span, h2 span,
 .about-outside-section { position: relative; overflow: hidden; padding-block: clamp(78px, 9vw, 118px); background: linear-gradient(125deg, #e7efeb 0%, #edf0e8 48%, #f4e9dc 100%); }
 .about-outside-section::after { position: absolute; top: -160px; left: -180px; width: 440px; height: 440px; border: 1px solid rgba(88,133,127,.17); border-radius: 50%; box-shadow: 0 0 0 18px rgba(88,133,127,.03), 0 0 0 45px rgba(186,100,72,.025); content: ''; pointer-events: none; }
 .about-outside-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .94fr); align-items: center; gap: clamp(44px, 7vw, 94px); }
-.about-outside-photo { min-width: 0; margin: 0; }
+.about-outside-photo { justify-self: center; min-width: 0; width: 100%; max-width: 480px; margin: 0; }
 .about-outside-photo-frame { position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 1.04; border: 1px solid rgba(22,35,59,.14); border-radius: 5px 26px 26px 26px; background: #dce7e1; box-shadow: 0 25px 55px rgba(22,35,59,.14); }
 .about-outside-photo-frame::after { position: absolute; z-index: 0; inset: 58% 0 0; background: linear-gradient(180deg, transparent, rgba(22,35,59,.38)); content: ''; pointer-events: none; }
 .about-outside-photo-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
@@ -1893,8 +1893,7 @@ h1 span, h2 span,
   .about-method-grid, .about-outside-grid { grid-template-columns: 1fr; gap: 36px; }
   .about-method-copy, .about-outside-copy { max-width: 650px; }
   .about-method-art { width: min(100%, 660px); justify-self: center; }
-  .about-outside-photo { width: min(100%, 560px); }
-  .about-outside-photo-frame { aspect-ratio: 1.08; }
+  .about-outside-photo { justify-self: start; width: min(100%, 480px); }
 }
 @media (max-width: 540px) {
   [data-page="about"] .about-hero { padding-block: 55px 62px; }
@@ -1917,7 +1916,7 @@ h1 span, h2 span,
   .about-method-copy h2, .about-outside-copy h2 { font-size: 37px; }
   .about-method-copy .section-lede, .about-outside-copy > p:not(.eyebrow) { font-size: 16px; }
   .about-method-art figcaption { gap: 6px; font-size: 7px; letter-spacing: .07em; }
-  .about-outside-photo-frame { aspect-ratio: .98; border-radius: 5px 19px 19px 19px; }
+  .about-outside-photo-frame { aspect-ratio: 1.02; border-radius: 5px 19px 19px 19px; }
   .about-photo-tag { top: 12px; left: 12px; }
   .about-interest-list { gap: 7px; margin-top: 20px; }
   .about-interest-list span { min-height: 34px; padding: 6px 9px; font-size: 9px; }
