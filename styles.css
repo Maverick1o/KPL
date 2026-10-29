@@ -1889,7 +1889,7 @@ h1 span, h2 span,
 @media (max-width: 800px) {
   [data-page="about"] .about-grid { grid-template-columns: 1fr; gap: 34px; }
   [data-page="about"] .about-hero h1 { max-width: 650px; font-size: clamp(43px, 8vw, 60px); }
-  .about-profile { justify-self: center; max-width: 530px; }
+  .about-profile { justify-self: center; max-width: 480px; }
   .about-method-grid, .about-outside-grid { grid-template-columns: 1fr; gap: 36px; }
   .about-method-copy, .about-outside-copy { max-width: 650px; }
   .about-method-art { width: min(100%, 660px); justify-self: center; }
