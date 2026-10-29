@@ -84,8 +84,8 @@ const pageContent = {
           </svg>
           <div class="hero-copy">
             <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> ONE-TO-ONE GUIDANCE FOR BUILDING REAL PROJECTS WITH AI</p>
-            <h1><span class="title-lead">Have an idea?</span><span class="title-word">Great.</span><span class="title-follow">No project in mind? We’ll find one together.</span></h1>
-            <p class="hero-lede">Bring an idea, a hunch, or no plan at all. We’ll choose a real project—or a hands-on practice build—and work through it together, so you gain the skills and confidence to keep going with AI on your own.</p>
+            <h1><span class="title-lead">Learn AI by</span><span class="title-word">making</span><span class="title-follow">something real.</span></h1>
+            <p class="hero-lede">Bring a goal, a question, or just curiosity. We’ll choose a real project—or a hands-on practice build—and work through it together, so you leave ready to keep building with AI on your own.</p>
             <ul class="project-types" aria-label="Project examples"><li>Apps</li><li>Websites</li><li>Digital tools</li><li>Automations</li></ul>
             <div class="hero-actions"><a class="button button-lime" href="#offers">Find your starting point <span aria-hidden="true">↓</span></a><a class="text-link" href="about.html">Meet Kevin <span aria-hidden="true">↗</span></a></div>
           </div>
