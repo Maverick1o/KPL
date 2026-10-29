@@ -114,16 +114,22 @@
             <p class="eyebrow"><span class="eyebrow-dot"></span> TWO-SESSION BUILD-TOGETHER STARTER</p>
             <h1>Choose a time<br /><span>for session one.</span></h1>
             <p class="hero-lede">Request a preferred 90-minute start time for the two-session starter. I’ll confirm it or suggest another time, then send prep details and a payment link. We’ll schedule session two together.</p>
-            <div class="booking-price"><div><span>TWO-SESSION TOTAL</span><strong>$447</strong></div><p>No payment now. After I confirm your time, $225 reserves your place; the remaining $222 is due before session two.</p></div>
+            <div class="booking-price"><div class="booking-price-total"><span>TWO-SESSION TOTAL</span><strong>$447</strong></div><div class="booking-price-details"><span class="booking-price-promise">No payment until I confirm your time</span><p>$225 reserves your place after confirmation; the remaining $222 is due before session two.</p></div></div>
           </div>
           <div class="booking-panel" id="booking-widget" data-booking-offer="two-session-starter">
-            <div class="booking-panel-heading"><span>REQUEST YOUR FIRST SESSION</span><span class="booking-status">KEVIN WILL CONFIRM</span></div>
+            <div class="booking-panel-heading"><div class="booking-panel-progress"><span class="booking-panel-step">01</span><span>SESSION 1 OF 2 · 90 MIN</span></div><span class="booking-status">I’LL CONFIRM THE TIME</span></div>
             <div class="booking-panel-body">
               <h2>When should we get started?</h2>
-              <p>Choose a date and time that works for you. This is a request, not a confirmed appointment.</p>
+              <p>Choose a preferred start time. I’ll confirm it or suggest another—your session isn’t booked until I confirm.</p>
               <form class="booking-request-form" id="booking-request-form">
-                <label class="booking-field booking-field-time" for="preferred-time">Preferred date and start time</label>
-                <input id="preferred-time" name="preferred_time" type="datetime-local" required />
+                <fieldset class="booking-time-fields">
+                  <legend>Preferred date and start time</legend>
+                  <div class="booking-time-row">
+                    <div class="booking-form-field"><label for="preferred-date">Date</label><input id="preferred-date" type="date" required /></div>
+                    <div class="booking-form-field"><label for="preferred-start-time">Start time</label><input id="preferred-start-time" type="time" step="900" required /></div>
+                  </div>
+                </fieldset>
+                <input id="preferred-time" name="preferred_time" type="hidden" />
                 <p class="booking-timezone" id="booking-timezone">Time shown in your local timezone.</p>
                 <div class="booking-form-row">
                   <div class="booking-form-field"><label for="booking-name">Name</label><input id="booking-name" name="name" autocomplete="name" type="text" required /></div>
@@ -134,7 +140,7 @@
                 <input name="offer" type="hidden" value="Two-session starter · $447 total" />
                 <input name="_subject" type="hidden" value="New two-session starter request" />
                 <button class="button button-lime booking-submit" type="submit">Request this time <span aria-hidden="true">↗</span></button>
-                <p class="booking-form-privacy">Your details are delivered to Kevin’s inbox through FormSubmit and used to follow up about this request.</p>
+                <p class="booking-form-privacy">Your details go to Kevin’s inbox and are used only to follow up about this request.</p>
                 <p class="booking-form-status form-status" id="booking-request-status" role="status" aria-live="polite" hidden></p>
                 <p class="booking-form-question">Need to ask something first? <a href="https://ig.me/m/kirkland_product_lab" target="_blank" rel="noopener noreferrer">DM Kevin on Instagram</a>.</p>
               </form>

@@ -59,6 +59,8 @@ const formSubmit = form?.querySelector(".form-submit");
 
 const bookingRequestForm = document.querySelector("#booking-request-form");
 const bookingRequestStatus = document.querySelector("#booking-request-status");
+const preferredDateInput = document.querySelector("#preferred-date");
+const preferredStartTimeInput = document.querySelector("#preferred-start-time");
 const preferredTimeInput = document.querySelector("#preferred-time");
 const timeZoneInput = document.querySelector("#booking-time-zone-value");
 const timeZoneLabel = document.querySelector("#booking-timezone");
@@ -102,10 +104,24 @@ function bookingRequestFailureMessage(error) {
     : "The request didn’t go through. Please try again or DM Kevin on Instagram.";
 }
 
-if (preferredTimeInput) {
-  const now = new Date();
-  const localNow = new Date(now.getTime() - now.getTimezoneOffset() * 60_000).toISOString().slice(0, 16);
-  preferredTimeInput.min = localNow;
+function localDateTimeValues(date = new Date()) {
+  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60_000).toISOString();
+  return { date: local.slice(0, 10), time: local.slice(11, 16) };
+}
+
+function updateBookingTimeMinimum() {
+  if (!preferredDateInput || !preferredStartTimeInput) return;
+  const earliestStart = new Date(Date.now() + 60_000);
+  earliestStart.setMinutes(Math.ceil(earliestStart.getMinutes() / 15) * 15, 0, 0);
+  const earliest = localDateTimeValues(earliestStart);
+  preferredDateInput.min = earliest.date;
+  if (preferredDateInput.value === earliest.date) preferredStartTimeInput.min = earliest.time;
+  else preferredStartTimeInput.removeAttribute("min");
+}
+
+if (preferredDateInput) {
+  updateBookingTimeMinimum();
+  preferredDateInput.addEventListener("change", updateBookingTimeMinimum);
   timeZoneInput.value = localTimeZone;
   timeZoneLabel.textContent = `Times are shown in your local timezone (${localTimeZone}).`;
 }
@@ -113,6 +129,7 @@ if (preferredTimeInput) {
 bookingRequestForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const submit = bookingRequestForm.querySelector("button[type='submit']");
+  preferredTimeInput.value = `${preferredDateInput.value}T${preferredStartTimeInput.value}`;
   const values = new FormData(bookingRequestForm);
   const requestedTime = new Date(values.get("preferred_time"));
   const formattedTime = new Intl.DateTimeFormat(undefined, {
@@ -129,7 +146,7 @@ bookingRequestForm?.addEventListener("submit", async (event) => {
   try {
     await emailFormSubmission(values);
     bookingRequestForm.reset();
-    preferredTimeInput.min = new Date(Date.now() - new Date().getTimezoneOffset() * 60_000).toISOString().slice(0, 16);
+    updateBookingTimeMinimum();
     timeZoneInput.value = localTimeZone;
     bookingRequestStatus.textContent = "Thanks—your time request is in. Kevin will confirm or suggest another time, then send prep details and a payment link.";
   } catch (error) {
