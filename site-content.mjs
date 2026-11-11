@@ -81,11 +81,11 @@ const pageContent = {
             <circle class="thread-node" cx="642" cy="315" r="3.5" />
           </svg>
           <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> ONE-TO-ONE GUIDANCE FOR BUILDING REAL PROJECTS WITH AI</p>
-            <h1><span class="title-lead">Learn AI by</span><span class="title-word">making</span><span class="title-follow">something real.</span></h1>
-            <p class="hero-lede">Bring a goal, a question, or just curiosity. We’ll choose a real project—or a hands-on practice build—and work through it together, so you leave ready to keep building with AI on your own.</p>
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> ONE-TO-ONE AI BUILD COACHING WITH KEVIN · FOR BEGINNERS</p>
+            <h1><span class="title-lead">Learn to build with AI</span><span class="title-word">by making</span><span class="title-follow">something real.</span></h1>
+            <p class="hero-lede">No coding experience or project idea needed. In two 90-minute sessions, I’ll teach you as we choose a small first build and work through it together, so you leave with a clear next step and the confidence to continue on your own.</p>
             <ul class="project-types" aria-label="Project examples"><li>Apps</li><li>Websites</li><li>Digital tools</li><li>Automations</li></ul>
-            <div class="hero-actions"><a class="button button-lime" href="#offers">Find your starting point <span aria-hidden="true">↓</span></a><a class="text-link" href="about.html">Meet Kevin <span aria-hidden="true">↗</span></a></div>
+            <div class="hero-actions"><a class="button button-lime" href="#starter-offer">Explore the 2-session Kickstart <span aria-hidden="true">↓</span></a><a class="text-link" href="about.html">Meet Kevin <span aria-hidden="true">↗</span></a></div>
           </div>
           <div class="hero-rail">
             <dl class="proof-strip" aria-label="Kevin's experience">
