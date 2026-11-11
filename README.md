@@ -12,8 +12,8 @@ python3 -m http.server 4173
 - `app-building.html` — one-on-one AI app-building coaching
 - `website-building.html` — AI website-building coaching for business owners
 - `student-coaching.html` — a low-pressure technology and AI exploration offer
-- `pricing.html` — two-session build-together starter, monthly build partnership, and availability
-- `booking.html` — custom preferred-time request form for session one of the two-session starter
+- `pricing.html` — AI Build Kickstart (two private 90-minute sessions), monthly build partnership, and availability
+- `booking.html` — custom preferred-time request form for session one of the AI Build Kickstart
 - `about.html` — Kevin’s experience and story
 - `contact.html` — lead form
 
@@ -31,7 +31,7 @@ The live sitemap is `https://maverick1o.github.io/KPL/sitemap.xml`. Submit it in
 
 ## Forms and current offer
 
-The session request form collects a preferred first-session date/time, name, email, and phone. Kevin confirms the time or suggests an alternative, then sends preparation details and a payment link; session two is scheduled together. No payment is taken at request time. Both the session request and contact forms send directly to Kevin’s public inbox using FormSubmit’s AJAX endpoint. FormSubmit is a free third-party form delivery service; the recipient address is public in the client-side code. The first real submission triggers a one-time inbox confirmation from FormSubmit, which Kevin must approve before submissions are delivered. Review FormSubmit’s current privacy terms. The pricing page lists the current founding-client starter rate and monthly build partnership; confirm these terms before quoting clients.
+The AI Build Kickstart request form collects a preferred first-session date/time, name, email, and phone, plus an optional note about what the person is curious to explore. Kevin confirms the time or suggests an alternative, then sends preparation details and a payment link; session two is scheduled together. No payment is taken at request time. Both the session request and contact forms send directly to Kevin’s public inbox using FormSubmit’s AJAX endpoint. FormSubmit is a free third-party form delivery service; the recipient address is public in the client-side code. The first real submission triggers a one-time inbox confirmation from FormSubmit, which Kevin must approve before submissions are delivered. Review FormSubmit’s current privacy terms. The pricing page lists the current founding-client AI Build Kickstart rate and monthly build partnership; confirm these terms before quoting clients.
 
 ## Visual direction
 
