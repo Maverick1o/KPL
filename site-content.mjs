@@ -7,6 +7,26 @@ const navItems = [
 ];
 
 const instagramDmHref = "https://www.instagram.com/kirkland_product_lab/";
+const publicSiteUrl = "https://maverick1o.github.io/KPL/";
+const sharePagePaths = {
+  home: "",
+  about: "about.html",
+  app: "app-building.html",
+  booking: "booking.html",
+  contact: "contact.html",
+  pricing: "pricing.html",
+  privacy: "privacy.html",
+  students: "student-coaching.html",
+  website: "website-building.html",
+};
+const sharePageUrl = new URL(sharePagePaths[page] ?? "", publicSiteUrl).href;
+const encodedSharePageUrl = encodeURIComponent(sharePageUrl);
+const sharePostText = encodeURIComponent("One-to-one AI build coaching for curious beginners with Kevin Kirkland.");
+const shareLinks = {
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedSharePageUrl}`,
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedSharePageUrl}`,
+  x: `https://twitter.com/intent/tweet?text=${sharePostText}&url=${encodedSharePageUrl}`,
+};
 const currentNav = page === "contact" ? "" : page;
 const primaryRequestHref = page === "students"
   ? "contact.html?interest=student#lead-form"
@@ -63,6 +83,22 @@ function footer() {
           <div><h3>Explore</h3><a href="app-building.html">App coaching</a><a href="website-building.html">Website coaching</a><a href="student-coaching.html">Students</a></div>
           <div><h3>More</h3><a href="pricing.html">Pricing</a><a href="about.html">About Kevin</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div>
         </nav>
+      </div>
+      <div class="shell footer-share">
+        <div class="footer-share-copy">
+          <p class="footer-share-label">PASS IT ALONG</p>
+          <p>Know someone who might find this page useful?</p>
+        </div>
+        <div class="footer-share-main">
+          <div class="footer-share-actions" role="group" aria-label="Share this page">
+            <a class="share-action" data-share-platform="linkedin" href="${shareLinks.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="Share this page on LinkedIn"><span class="share-mark share-mark-linkedin" aria-hidden="true">in</span><span>LinkedIn</span></a>
+            <a class="share-action" data-share-platform="facebook" href="${shareLinks.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Share this page on Facebook"><span class="share-mark share-mark-facebook" aria-hidden="true">f</span><span>Facebook</span></a>
+            <a class="share-action" data-share-platform="x" href="${shareLinks.x}" target="_blank" rel="noopener noreferrer" aria-label="Share this page on X"><span class="share-mark share-mark-x" aria-hidden="true">X</span><span>X</span></a>
+            <button class="share-action" type="button" data-copy-page-link><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.7 15.3a1 1 0 0 1 0-1.4l5.2-5.2a1 1 0 1 1 1.4 1.4l-5.2 5.2a1 1 0 0 1-1.4 0ZM7 17a3 3 0 0 1 0-4.2l2.1-2.1-1.4-1.4-2.1 2.1a5 5 0 0 0 7.1 7.1l2.1-2.1-1.4-1.4L11.2 17A3 3 0 0 1 7 17Zm10-10a3 3 0 0 1 0 4.2l-2.1 2.1 1.4 1.4 2.1-2.1a5 5 0 0 0-7.1-7.1L9.2 7.6l1.4 1.4L12.8 7A3 3 0 0 1 17 7Z"/></svg><span>Copy link</span></button>
+            <button class="share-action share-native-action" type="button" data-native-share hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.1a3 3 0 0 0-2.4 1.2l-6.9-4a3.1 3.1 0 0 0 0-2.6l6.9-4A3 3 0 1 0 14.7 5c0 .2 0 .4.1.6l-6.9 4a3 3 0 1 0 0 4.8l6.9 4a3 3 0 1 0 3.2-2.3Z"/></svg><span>Share</span></button>
+          </div>
+          <span class="footer-share-feedback" data-share-feedback role="status" aria-live="polite"></span>
+        </div>
       </div>
       <div class="shell footer-bottom"><span>© <span data-year></span> Kirkland Product Lab</span><span>Practical coaching <i>·</i> Real projects <i>·</i> Skills that travel</span></div>
     </footer>
@@ -139,7 +175,8 @@ const pageContent = {
           <p class="privacy-updated">Last updated November 12, 2026</p>
           <h2>Website analytics</h2>
           <p>This site offers Google Analytics 4 to understand how visitors use its pages and coaching offers. Analytics may collect information such as pages viewed, referring page, browser and device details, approximate location, and interactions such as scrolls and link clicks. Google Analytics may use cookies or similar technologies to collect and process this information. The Analytics script loads only if you choose “Allow analytics” in the privacy banner; if you decline, Analytics does not load.</p>
-          <p>Analytics is configured with Google Signals and ad personalization disabled. The site sends event details such as the page type, the type and placement of a button clicked, and the destination hostname. It does not send names, email addresses, phone numbers, requested appointment times, or the contents of form messages to Google Analytics.</p>
+          <p>Analytics is configured with Google Signals and ad personalization disabled. The site sends event details such as the page type, the type and placement of a button clicked, the destination hostname, and whether a visitor used a share option. It does not send names, email addresses, phone numbers, requested appointment times, or the contents of form messages to Google Analytics.</p>
+          <p>Share buttons open the selected social network with the canonical public page URL. Those services handle any sharing activity under their own privacy policies. The “Copy link” option copies the canonical page URL to your clipboard.</p>
           <p>For details about Google's data practices, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use its services</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
           <h2>Booking and contact forms</h2>
           <p>If you send a booking request or contact message, the information you enter—including your name, email address, phone number, requested time, and any optional note—is sent through FormSubmit to Kevin Kirkland so he can respond to your inquiry. These form details are not sent to Google Analytics.</p>

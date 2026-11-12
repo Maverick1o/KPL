@@ -97,6 +97,70 @@ function ctaPlacement(link) {
   return "content";
 }
 
+function getSharePageUrl() {
+  const canonicalUrl = document.querySelector('link[rel="canonical"]')?.href;
+  return new URL(canonicalUrl || window.location.href, window.location.href).href;
+}
+
+function getShareTitle() {
+  return document.querySelector('meta[property="og:title"]')?.content || document.title;
+}
+
+function getShareHref(platform, url, title) {
+  const encodedUrl = encodeURIComponent(url);
+  if (platform === "linkedin") return `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+  if (platform === "facebook") return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+  if (platform === "x") return `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodedUrl}`;
+  return "#";
+}
+
+function initShareActions() {
+  const shareUrl = getSharePageUrl();
+  const shareTitle = getShareTitle();
+  const feedback = document.querySelector("[data-share-feedback]");
+  document.querySelectorAll("[data-share-platform]").forEach((link) => {
+    link.href = getShareHref(link.dataset.sharePlatform, shareUrl, shareTitle);
+  });
+
+  const nativeShareButton = document.querySelector("[data-native-share]");
+  if (nativeShareButton && typeof navigator.share === "function") {
+    nativeShareButton.hidden = false;
+    nativeShareButton.addEventListener("click", async () => {
+      try {
+        await navigator.share({ title: shareTitle, text: "Know someone who might find this page useful?", url: shareUrl });
+        trackEvent("share", { share_method: "native" });
+      } catch (error) {
+        if (error?.name !== "AbortError" && feedback) feedback.textContent = "Sharing wasn’t available. Try one of the options above.";
+      }
+    });
+  }
+
+  document.querySelector("[data-copy-page-link]")?.addEventListener("click", async () => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+      } else {
+        const field = document.createElement("textarea");
+        field.value = shareUrl;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.append(field);
+        field.select();
+        const copied = document.execCommand("copy");
+        field.remove();
+        if (!copied) throw new Error("Clipboard copy failed");
+      }
+      if (feedback) feedback.textContent = "Page link copied";
+      trackEvent("share", { share_method: "copy_link" });
+    } catch {
+      if (feedback) feedback.textContent = "Couldn’t copy automatically. Please copy the page address from your browser.";
+    }
+  });
+}
+
+initShareActions();
+
 document.addEventListener("click", (event) => {
   const link = event.target.closest("a[href]");
   if (!link) return;
@@ -121,6 +185,10 @@ document.addEventListener("click", (event) => {
 
   if (/instagram\.com$|ig\.me$/i.test(destination.hostname)) {
     trackEvent("instagram_click", { cta_placement: placement });
+  }
+
+  if (link.dataset.sharePlatform) {
+    trackEvent("share", { share_method: link.dataset.sharePlatform });
   }
 });
 
