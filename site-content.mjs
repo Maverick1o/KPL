@@ -200,7 +200,7 @@ const pageContent = {
           <div class="proof-grid">
             <div class="proof-item"><span class="proof-value">20 years</span><p class="proof-description">building software</p></div>
             <div class="proof-item"><span class="proof-value">50+ products</span><p class="proof-description">built or supported</p></div>
-            <div class="proof-item"><span class="proof-value">Thousands of hours</span><p class="proof-description">building with AI</p></div>
+            <div class="proof-item"><span class="proof-value">5,000+ hours</span><p class="proof-description">building with AI</p></div>
           </div>
         </div>
       </div>
