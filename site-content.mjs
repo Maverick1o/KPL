@@ -6,7 +6,7 @@ const navItems = [
   ["About", "about.html", "about"],
 ];
 
-const instagramDmHref = "https://ig.me/m/kirkland_product_lab";
+const instagramDmHref = "https://www.instagram.com/kirkland_product_lab/";
 const currentNav = page === "contact" ? "" : page;
 const primaryRequestHref = page === "students"
   ? "contact.html?interest=student#lead-form"
@@ -399,7 +399,7 @@ const pageContent = {
 
       ${faqSection({ title: "A few things you might be wondering." })}
 
-      <section class="cta-section home-starter-cta" id="starter-offer" data-parallax-bg="0.02"><div class="shell cta-card home-starter-card" data-parallax="0.018"><div class="home-starter-copy"><p class="eyebrow eyebrow-light">AI BUILD KICKSTART · LIMITED WEEKLY AVAILABILITY</p><h2>Your first AI build starts here.</h2><p>No coding experience or finished project idea needed. Across two focused sessions, we’ll choose a beginner-friendly first build, make real progress, and show you how to keep going on your own.</p><p class="home-starter-details"><strong>$447 total</strong><span aria-hidden="true">·</span><span>Two 90-minute sessions</span><span aria-hidden="true">·</span><span>$225 after time confirmation · $222 before session two</span></p></div><div class="home-starter-actions"><a class="button button-lime" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">Have a question? DM Kevin on Instagram <span aria-hidden="true">↗</span></a></div></div></section>
+      <section class="cta-section home-starter-cta" id="starter-offer" data-parallax-bg="0.02"><div class="shell cta-card home-starter-card" data-parallax="0.018"><div class="home-starter-copy"><p class="eyebrow eyebrow-light">AI BUILD KICKSTART · LIMITED WEEKLY AVAILABILITY</p><h2>Your first AI build starts here.</h2><p>No coding experience or finished project idea needed. Across two focused sessions, we’ll choose a beginner-friendly first build, make real progress, and show you how to keep going on your own.</p><p class="home-starter-details"><strong>$447 total</strong><span aria-hidden="true">·</span><span>Two 90-minute sessions</span><span aria-hidden="true">·</span><span>$225 after time confirmation · $222 before session two</span></p></div><div class="home-starter-actions"><a class="button button-lime" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">Have a question? Message Kevin on Instagram <span aria-hidden="true">↗</span></a></div></div></section>
     </main>
   `,
   booking: `
@@ -439,7 +439,7 @@ const pageContent = {
                 <button class="button button-lime booking-submit" type="submit">Request this session time</button>
                 <p class="booking-form-privacy">Your details go to Kevin’s inbox and are used only to follow up about this request.</p>
                 <p class="booking-form-status form-status" id="booking-request-status" role="status" aria-live="polite" hidden></p>
-                <p class="booking-form-question">Need to ask something first? <a href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">DM Kevin on Instagram</a>.</p>
+                <p class="booking-form-question">Need to ask something first? <a href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">Open Kevin’s Instagram profile to message him</a>.</p>
               </form>
             </div>
           </div>
@@ -596,7 +596,7 @@ const pageContent = {
   `,
   contact: `
     <main id="main">
-      <section class="contact-section"><div class="shell contact-grid"><div class="contact-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> QUESTIONS &amp; PROJECTS</p><h1>Have a question?<br /><span>Let’s talk it through.</span></h1><p class="hero-lede">Curious about building with AI but not sure where to start? Send Kevin a note. No coding experience or finished project idea needed, and he’ll reply directly.</p><div class="contact-reassurance"><span>01</span><p>You don’t need a finished plan to get in touch.</p></div><div class="contact-reassurance"><span>02</span><p>You’ll know the scope, price, and next step before any work begins.</p></div><div class="contact-reassurance"><span>03</span><p>For a student under 18, a parent or guardian should submit the message.</p></div><p class="contact-instagram-link">Prefer Instagram? <a href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">DM Kevin directly <span aria-hidden="true">↗</span></a></p></div><div class="form-card"><div class="form-heading"><p class="eyebrow">SEND KEVIN A NOTE</p><h2>What’s on your mind?</h2><p>Tell me what you’re curious about, even if you’re still figuring out where to start.</p></div><form id="lead-form">
+      <section class="contact-section"><div class="shell contact-grid"><div class="contact-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> QUESTIONS &amp; PROJECTS</p><h1>Have a question?<br /><span>Let’s talk it through.</span></h1><p class="hero-lede">Curious about building with AI but not sure where to start? Send Kevin a note. No coding experience or finished project idea needed, and he’ll reply directly.</p><div class="contact-reassurance"><span>01</span><p>You don’t need a finished plan to get in touch.</p></div><div class="contact-reassurance"><span>02</span><p>You’ll know the scope, price, and next step before any work begins.</p></div><div class="contact-reassurance"><span>03</span><p>For a student under 18, a parent or guardian should submit the message.</p></div><p class="contact-instagram-link">Prefer Instagram? <a href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">Open Kevin’s profile to message him <span aria-hidden="true">↗</span></a></p></div><div class="form-card"><div class="form-heading"><p class="eyebrow">SEND KEVIN A NOTE</p><h2>What’s on your mind?</h2><p>Tell me what you’re curious about, even if you’re still figuring out where to start.</p></div><form id="lead-form">
         <label for="lead-name">Your name <span>*</span></label><input id="lead-name" name="name" autocomplete="name" required placeholder="Name" />
         <label for="lead-email">Email address <span>*</span></label><input id="lead-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
         <label for="lead-interest">What are you curious about?</label><select id="lead-interest" name="interest"><option value="">Choose one</option><option value="build">AI building in general / help me choose</option><option value="app">App building with AI</option><option value="website">Small-business website</option><option value="student">Student exploration</option><option value="other">Something else</option></select>
