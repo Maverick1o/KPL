@@ -1,7 +1,7 @@
 export function renderSite(page) {
 const navItems = [
   ["Home", "./", "home"],
-  ["Ways to work together", "./#offers", "offers"],
+  ["Who it’s for", "./#offers", "offers"],
   ["Pricing", "pricing.html", "pricing"],
   ["About", "about.html", "about"],
 ];
