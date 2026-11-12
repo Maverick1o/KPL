@@ -8,6 +8,7 @@ const pages = {
   "booking.html": "booking",
   "contact.html": "contact",
   "pricing.html": "pricing",
+  "privacy.html": "privacy",
   "student-coaching.html": "students",
   "website-building.html": "website",
 };

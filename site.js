@@ -1,6 +1,129 @@
 import { renderSite } from "./site-content.mjs";
 
 const page = document.body.dataset.page || "home";
+const GA4_MEASUREMENT_ID = "G-Y8Q414E2YG";
+const ANALYTICS_CONSENT_KEY = "kpl-analytics-consent";
+let analyticsInitialized = false;
+
+function initGoogleAnalytics(measurementId) {
+  if (analyticsInitialized || !/^G-[A-Z0-9]+$/i.test(measurementId)) return;
+  analyticsInitialized = true;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
+  window.gtag("js", new Date());
+  window.gtag("config", measurementId, {
+    send_page_view: true,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
+  });
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+  document.head.append(script);
+}
+
+function getAnalyticsConsent() {
+  try {
+    return window.localStorage.getItem(ANALYTICS_CONSENT_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function setAnalyticsConsent(choice) {
+  try {
+    window.localStorage.setItem(ANALYTICS_CONSENT_KEY, choice);
+  } catch {
+    // Keep this page's choice even when the browser blocks local storage.
+  }
+  window[`ga-disable-${GA4_MEASUREMENT_ID}`] = choice !== "granted";
+  document.querySelector("#analytics-consent")?.remove();
+  if (choice === "granted") initGoogleAnalytics(GA4_MEASUREMENT_ID);
+}
+
+function showAnalyticsConsent() {
+  if (document.querySelector("#analytics-consent")) return;
+  const banner = document.createElement("aside");
+  banner.id = "analytics-consent";
+  banner.className = "analytics-consent";
+  banner.setAttribute("aria-label", "Analytics privacy choices");
+  banner.innerHTML = `
+    <div class="analytics-consent-copy">
+      <strong>Help improve this site?</strong>
+      <p>Optional Google Analytics measures visits and interactions. You can allow or decline it; see the <a href="privacy.html">privacy page</a>.</p>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="analytics-choice analytics-choice-decline" type="button" data-analytics-decline>Decline</button>
+      <button class="analytics-choice analytics-choice-allow" type="button" data-analytics-allow>Allow analytics</button>
+    </div>
+  `;
+  banner.querySelector("[data-analytics-decline]").addEventListener("click", () => setAnalyticsConsent("denied"));
+  banner.querySelector("[data-analytics-allow]").addEventListener("click", () => setAnalyticsConsent("granted"));
+  document.body.append(banner);
+}
+
+const savedAnalyticsConsent = getAnalyticsConsent();
+if (savedAnalyticsConsent === "granted") initGoogleAnalytics(GA4_MEASUREMENT_ID);
+else if (savedAnalyticsConsent !== "denied") showAnalyticsConsent();
+
+document.addEventListener("click", (event) => {
+  const preferencesButton = event.target.closest("[data-analytics-preferences]");
+  if (!preferencesButton) return;
+  showAnalyticsConsent();
+});
+
+function trackEvent(name, parameters = {}) {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", name, {
+    page_type: page,
+    page_path: window.location.pathname,
+    ...parameters,
+  });
+}
+
+function ctaPlacement(link) {
+  if (link.closest(".primary-nav")) return "navigation";
+  if (link.closest(".home-hero")) return "home_hero";
+  if (link.closest(".home-starter-card")) return "home_offer";
+  if (link.closest(".price-summary")) return "price_summary";
+  if (link.closest(".price-payment-card")) return "payment_summary";
+  if (link.closest(".booking-panel")) return "booking_panel";
+  if (link.closest(".detail-hero")) return "service_hero";
+  if (link.closest(".contact-section")) return "contact_section";
+  if (link.closest(".cta-section")) return "section_cta";
+  if (link.closest(".site-footer")) return "footer";
+  return "content";
+}
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (!link) return;
+
+  const destination = new URL(link.href, window.location.href);
+  const ctaText = (link.innerText || link.getAttribute("aria-label") || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 100);
+  const placement = ctaPlacement(link);
+  const isCta = link.matches(".button, .nav-cta, .text-link, .card-link, .about-linkedin");
+
+  if (isCta) {
+    trackEvent("cta_click", {
+      cta_text: ctaText,
+      cta_placement: placement,
+      destination: destination.origin === window.location.origin
+        ? `${destination.pathname}${destination.hash}`
+        : destination.hostname,
+    });
+  }
+
+  if (/instagram\.com$|ig\.me$/i.test(destination.hostname)) {
+    trackEvent("instagram_click", { cta_placement: placement });
+  }
+});
+
 const siteRoot = document.querySelector("#site");
 if (!siteRoot.innerHTML.trim()) siteRoot.innerHTML = renderSite(page);
 document.querySelectorAll("[data-year]").forEach((node) => { node.textContent = new Date().getFullYear(); });
@@ -65,6 +188,18 @@ const preferredTimeInput = document.querySelector("#preferred-time");
 const timeZoneInput = document.querySelector("#booking-time-zone-value");
 const timeZoneLabel = document.querySelector("#booking-timezone");
 const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "local time";
+
+bookingRequestForm?.addEventListener("focusin", () => {
+  if (bookingRequestForm.dataset.analyticsStarted) return;
+  bookingRequestForm.dataset.analyticsStarted = "true";
+  trackEvent("booking_request_start");
+});
+
+form?.addEventListener("focusin", () => {
+  if (form.dataset.analyticsStarted) return;
+  form.dataset.analyticsStarted = "true";
+  trackEvent("contact_form_start");
+});
 
 async function emailFormSubmission(values) {
   const payload = Object.fromEntries(values.entries());
@@ -145,11 +280,13 @@ bookingRequestForm?.addEventListener("submit", async (event) => {
   bookingRequestStatus.textContent = "Sending your request…";
   try {
     await emailFormSubmission(values);
+    trackEvent("booking_request_submit", { offer: "ai_build_kickstart" });
     bookingRequestForm.reset();
     updateBookingTimeMinimum();
     timeZoneInput.value = localTimeZone;
     bookingRequestStatus.textContent = "Thanks—your time request is in. Kevin will confirm or suggest another time, then send prep details and a payment link.";
   } catch (error) {
+    trackEvent("booking_request_error", { offer: "ai_build_kickstart" });
     bookingRequestStatus.classList.add("is-error");
     bookingRequestStatus.textContent = bookingRequestFailureMessage(error);
   } finally {
@@ -176,10 +313,16 @@ form?.addEventListener("submit", async (event) => {
     const values = new FormData(form);
     values.delete("permission");
     await emailFormSubmission(values);
+    trackEvent("generate_lead", {
+      lead_type: isStudentRequest ? "student_inquiry" : "contact_inquiry",
+    });
     form.reset();
     formStatus.classList.remove("is-error");
     formStatus.textContent = "Thanks—your request has been sent. I’ll reply to confirm fit and availability.";
   } catch {
+    trackEvent("contact_form_error", {
+      lead_type: isStudentRequest ? "student_inquiry" : "contact_inquiry",
+    });
     formStatus.classList.add("is-error");
     formStatus.textContent = "That didn’t go through. Please try again in a moment.";
   } finally {
