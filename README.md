@@ -41,6 +41,6 @@ Suggested KPIs: landing-page visitors, CTA clicks by page and placement, booking
 
 ## Visual direction
 
-The site uses colors sampled from the supplied illustration: warm cream, black, olive, ochre, red-orange, and slate blue. The homepage introduces Kevin and his experience in a separate black coach bar before presenting the one-to-one AI-build offer. Manrope is used for regular text, Space Grotesk for headings, DM Mono for small labels, and Georgia italic for the decorative hero phrase. The KPL logo tile remains black.
+The site uses colors sampled from the supplied illustration: warm cream, black, olive, ochre, red-orange, and slate blue. The homepage introduces Kevin and his experience in a separate black coach bar before presenting the one-on-one AI-build offer. Manrope is used for regular text, Space Grotesk for headings, DM Mono for small labels, and Georgia italic for the decorative hero phrase. The KPL logo tile remains black.
 
 The site uses the supplied KPL icon and the learner-at-a-desk illustration on the homepage. Fonts load from Google Fonts when network access is available and fall back to system sans-serif fonts otherwise.

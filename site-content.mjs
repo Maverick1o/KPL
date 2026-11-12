@@ -21,7 +21,7 @@ const sharePagePaths = {
 };
 const sharePageUrl = new URL(sharePagePaths[page] ?? "", publicSiteUrl).href;
 const encodedSharePageUrl = encodeURIComponent(sharePageUrl);
-const sharePostText = encodeURIComponent("One-to-one AI build coaching for curious beginners with Kevin Kirkland.");
+const sharePostText = encodeURIComponent("One-on-one AI build coaching for curious beginners with Kevin Kirkland.");
 const shareLinks = {
   linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedSharePageUrl}`,
   facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedSharePageUrl}`,
@@ -76,7 +76,7 @@ function footer() {
             <span class="brand-mark"><img src="assets/kpl-icon.png" alt="" /></span>
             <span class="brand-name">Kirkland <b>Product Lab</b></span>
           </a>
-          <p>One-to-one AI build coaching for curious beginners, business owners, and students.</p>
+          <p>One-on-one AI build coaching for curious beginners, business owners, and students.</p>
           <a class="footer-handle" href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">@kirkland_product_lab <span aria-hidden="true">↗</span></a>
         </div>
         <nav class="footer-links" aria-label="Footer navigation">
@@ -206,10 +206,10 @@ const pageContent = {
       </div>
     </section>
     <main id="main">
-      <section class="home-hero" id="home-offer" aria-label="One-to-one AI build coaching offer">
+      <section class="home-hero" id="home-offer" aria-label="One-on-one AI build coaching offer">
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> THE OFFER · ONE-TO-ONE AI BUILD COACHING FOR BEGINNERS</p>
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> THE OFFER · ONE-ON-ONE AI BUILD COACHING FOR BEGINNERS</p>
             <h1><span class="title-lead">Learn to build with AI</span><span class="title-word">by making</span><span class="title-follow">something real.</span></h1>
             <p class="hero-lede">No coding experience or project idea needed. In two 90-minute sessions, I’ll help you choose a small first build and coach you as you make it with AI—so you leave knowing how to keep going on your own.</p>
             <ul class="project-types" aria-label="Project examples"><li>Apps</li><li>Websites</li><li>Digital tools</li><li>Automations</li></ul>
@@ -227,7 +227,7 @@ const pageContent = {
           <div class="intro-copy">
             <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> KEVIN’S EXPERIENCE, SHARED WITH YOU</p>
             <h2>I’ve spent thousands of hours building with AI—and I’ll show you what I’ve learned.</h2>
-            <p class="section-lede">I’m Kevin, a software builder. I’ve used AI on real projects, learning how to give it context, guide its work, and check the results. In our one-to-one sessions, I’ll teach you that process as we build something together.</p>
+            <p class="section-lede">I’m Kevin, a software builder. I’ve used AI on real projects, learning how to give it context, guide its work, and check the results. In our one-on-one sessions, I’ll teach you that process as we build something together.</p>
           </div>
           <figure class="intro-art" data-parallax="0.04">
             <svg viewBox="0 0 480 390" role="img" aria-labelledby="idea-art-title idea-art-desc">
@@ -309,7 +309,7 @@ const pageContent = {
       <section class="section offers-section" id="offers" data-parallax-bg="0.025">
         <div class="shell">
           <div class="section-heading">
-            <div><p class="eyebrow">ONE-TO-ONE AI BUILD COACHING</p><h2>Learn to build with AI, one-on-one.</h2></div>
+            <div><p class="eyebrow">ONE-ON-ONE AI BUILD COACHING</p><h2>Learn to build with AI, one-on-one.</h2></div>
             <div class="offers-intro">
               <p>No coding experience or finished idea needed. I’ll help you choose a useful first step, build alongside you, and learn how to keep going.</p>
               <div class="coach-note">
@@ -320,7 +320,7 @@ const pageContent = {
                   <path d="M19 27c0-5 3.6-9 8-9s8 4 8 9" fill="none" stroke="#24190f" stroke-width="2" stroke-linecap="round" />
                   <path d="M16 7h6" stroke="#e83018" stroke-width="1.5" stroke-dasharray="2 2" />
                 </svg>
-                <span>One-to-one with Kevin</span>
+                <span>One-on-one with Kevin</span>
               </div>
             </div>
           </div>
@@ -349,7 +349,7 @@ const pageContent = {
                   <path d="M144 39h16M112 51h48" stroke="#24190f" stroke-opacity=".58" stroke-width="1.6" stroke-linecap="round" />
                 </g>
               </svg>
-              <p class="card-label">ONE-TO-ONE APP COACHING</p>
+              <p class="card-label">ONE-ON-ONE APP COACHING</p>
               <h3>Learn app building with AI, one-on-one.</h3>
               <p>We’ll choose a small first build together. I’ll guide you through it and show you how to keep going with AI.</p>
               <a class="card-link" href="app-building.html">Explore app coaching</a>
@@ -378,7 +378,7 @@ const pageContent = {
                 </g>
                 <path d="m157 12 2-5m6 11 5-2" stroke="#e83018" stroke-width="1.6" stroke-linecap="round" />
               </svg>
-              <p class="card-label">ONE-TO-ONE WEBSITE COACHING</p>
+              <p class="card-label">ONE-ON-ONE WEBSITE COACHING</p>
               <h3>Build your business website with guidance.</h3>
               <p>We’ll work on your real site together and practice everyday updates with AI, with me guiding each step.</p>
               <a class="card-link" href="website-building.html">Explore website coaching <span aria-hidden="true">↗</span></a>
@@ -405,7 +405,7 @@ const pageContent = {
               </svg>
               <p class="card-label">GUIDED STUDENT EXPLORATION</p>
               <h3>Explore tech with Kevin guiding you.</h3>
-              <p>Try AI, coding, and app building in a low-pressure one-to-one session. I’ll help you find what interests you.</p>
+              <p>Try AI, coding, and app building in a low-pressure one-on-one session. I’ll help you find what interests you.</p>
               <a class="card-link" href="student-coaching.html">Explore student coaching <span aria-hidden="true">↗</span></a>
             </article>
           </div>
@@ -521,7 +521,7 @@ const pageContent = {
     <main id="main">
       <section class="page-hero price-hero"><div class="shell price-hero-grid"><div class="price-hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> HANDS-ON AI BUILDING · REMOTE 1:1</p><h1>Curious about building with AI?<br /><span>Start with something real.</span></h1><p class="hero-lede">No coding experience or polished project idea needed. The $447 AI Build Kickstart gives you two 90-minute sessions to choose a useful first build, make progress together, and learn a process you can use on your next idea.</p><div class="price-hero-points"><span><i aria-hidden="true">✓</i> A beginner-friendly first build</span><span><i aria-hidden="true">✓</i> No ongoing commitment</span></div></div><aside class="price-summary" id="starter" aria-label="AI Build Kickstart price and booking"><div class="price-summary-top"><p class="eyebrow">AI BUILD KICKSTART</p><span class="price-rate-badge">PRIVATE 1:1 · LIMITED WEEKLY AVAILABILITY</span></div><div class="price-summary-main"><div><span class="price-total-label">TOTAL INVESTMENT</span><p class="price-total"><span>$</span>447 <small>total</small></p></div><div class="price-session-count"><strong>3 hours</strong><span>private, live build time</span></div></div><div class="price-session-format">Two private 90-minute sessions</div><a class="button button-lime price-primary-cta" href="booking.html#booking-widget">Request the AI Build Kickstart</a><p class="price-summary-note">No payment until I confirm your time. Then $225 to reserve; the remaining $222 is due before session two.</p><div class="price-assurance"><span aria-hidden="true">✳</span> You’ll know the time, scope, and price before any payment.</div></aside></div></section>
       <section class="section price-value-section"><div class="shell"><div class="section-heading price-value-heading"><div><p class="eyebrow">WHAT YOUR $447 INCLUDES</p><h2>Start with curiosity.<br /><span>Leave with momentum.</span></h2></div><p>Start with what you’re curious about. We’ll choose a beginner-friendly first step and build alongside you.</p></div><div class="price-value-grid"><article><span>01</span><h3>A clear first milestone</h3><p>We’ll turn your interest or rough goal into a clear first step and decide what’s realistic to tackle together.</p></article><article><span>02</span><h3>Build alongside Kevin</h3><p>Make a useful first version. I’ll show you how to guide AI, understand key decisions, and get unstuck as you work.</p></article><article><span>03</span><h3>A way to keep moving</h3><p>Leave knowing what you made, what to try next, and how to keep building with AI on your own.</p></article></div></div></section>
-      <section class="price-payment-section"><div class="shell price-payment-grid"><div class="price-payment-copy"><p class="eyebrow">STRAIGHTFORWARD PAYMENT</p><h2>One price.<br /><span>Split into two.</span></h2><p>Request a preferred time first. There’s nothing to pay until I confirm it with you.</p><div class="price-payment-facts"><span>Remote, one-to-one</span><span>Two 90-minute sessions</span><span>No automatic enrollment</span></div></div><div class="price-payment-card"><div class="payment-total-row"><span>Two-session total</span><strong>$447</strong></div><div class="payment-step-row"><span><i>01</i> After I confirm your time</span><strong>$225</strong></div><div class="payment-step-row"><span><i>02</i> Before session two</span><strong>$222</strong></div><a class="button button-dark" href="booking.html#booking-widget">Request the AI Build Kickstart</a><p>Requesting a time is free. I’ll confirm it or suggest another time before you pay.</p></div></div></section>
+      <section class="price-payment-section"><div class="shell price-payment-grid"><div class="price-payment-copy"><p class="eyebrow">STRAIGHTFORWARD PAYMENT</p><h2>One price.<br /><span>Split into two.</span></h2><p>Request a preferred time first. There’s nothing to pay until I confirm it with you.</p><div class="price-payment-facts"><span>Remote, one-on-one</span><span>Two 90-minute sessions</span><span>No automatic enrollment</span></div></div><div class="price-payment-card"><div class="payment-total-row"><span>Two-session total</span><strong>$447</strong></div><div class="payment-step-row"><span><i>01</i> After I confirm your time</span><strong>$225</strong></div><div class="payment-step-row"><span><i>02</i> Before session two</span><strong>$222</strong></div><a class="button button-dark" href="booking.html#booking-widget">Request the AI Build Kickstart</a><p>Requesting a time is free. I’ll confirm it or suggest another time before you pay.</p></div></div></section>
       ${faqSection({ title: "Clear answers before you book.", intro: "See how the sessions work, what the price covers, and what to expect when you request a time." })}
       <section class="price-options-section"><div class="shell"><div class="price-continuation"><div class="price-continuation-copy"><p class="eyebrow">OPTIONAL · AFTER THE KICKSTART</p><h2>Want to keep building?</h2><p>Two 90-minute build blocks each month, plus up to two email questions (replies within two business days).</p></div><div class="price-continuation-price"><strong>$399</strong><span>per month</span></div><div class="price-continuation-action"><p>Opt in only if it’s useful. Monthly billing is recurring.</p><a class="text-link" href="contact.html?interest=build">Request monthly support <span aria-hidden="true">↗</span></a></div></div><div class="price-student-note"><p><strong>For students:</strong> Sessions are shaped around the student’s age, interests, and project. A parent or guardian can <a href="contact.html?interest=student#lead-form">ask about a student session</a>.</p></div></div></section>
     </main>
