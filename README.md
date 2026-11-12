@@ -35,6 +35,6 @@ The AI Build Kickstart request form collects a preferred first-session date/time
 
 ## Visual direction
 
-The site uses a warm paper canvas, deep navy type, rust and orange accents, and a restrained golden yellow for primary actions. Editorial typography, fine rules, layered paper shapes, and soft shadows connect the pages without making every section feel like a separate card. Existing illustrations remain in place and sit within the same warm visual system.
+The site uses colors sampled from the supplied illustration: warm cream, black, olive, ochre, red-orange, and slate blue. The homepage introduces Kevin and his experience in a separate black coach bar before presenting the one-to-one AI-build offer. Manrope is used for regular text, Space Grotesk for headings, DM Mono for small labels, and Georgia italic for the decorative hero phrase. The KPL logo tile remains black.
 
-The site uses the supplied KPL icon. Fonts load from Google Fonts when network access is available and fall back to system sans-serif fonts otherwise.
+The site uses the supplied KPL icon and the learner-at-a-desk illustration on the homepage. Fonts load from Google Fonts when network access is available and fall back to system sans-serif fonts otherwise.
