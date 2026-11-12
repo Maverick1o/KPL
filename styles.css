@@ -2199,5 +2199,5 @@ h1 span, h2 span,
   .home-hero .hero-actions { gap: 8px; margin-top: 23px; }
   .home-hero .button { min-height: 48px; padding-inline: 12px; font-size: 13px; }
   .home-hero .text-link { font-size: 13px; }
-  .offer-details { gap: 7px; margin-top: 16px; font-size: 10px; }
+  .offer-details { gap: 7px; margin-top: 16px; font-size: 12px; }
 }
