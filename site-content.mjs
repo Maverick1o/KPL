@@ -218,7 +218,10 @@ const pageContent = {
           </div>
           <figure class="hero-art">
             <div class="art-stack"><div class="art-plate"><img src="assets/home-build-with-ai-illustration.png" alt="A learner creates a digital project at a desk, with a coach guiding them on screen." /></div></div>
-            <div class="availability-badge"><span class="availability-badge-dot" aria-hidden="true"></span> Limited weekly availability</div>
+            <div class="availability-badge">
+              <span class="availability-badge-spark" aria-hidden="true">✦</span>
+              <span class="availability-badge-label"><span>Limited</span><span>Availability</span></span>
+            </div>
           </figure>
         </div>
       </section>

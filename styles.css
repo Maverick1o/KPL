@@ -2219,24 +2219,44 @@ h1 span, h2 span,
 .availability-badge {
   position: absolute;
   z-index: 3;
-  top: 18px;
-  right: 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  max-width: calc(100% - 24px);
-  padding: 10px 14px;
-  border: 1px solid rgba(208,184,80,.8);
-  border-radius: 999px;
-  color: var(--paper);
+  top: -18px;
+  right: 10px;
+  display: grid;
+  place-content: center;
+  gap: 3px;
+  width: 136px;
+  aspect-ratio: 1;
+  color: var(--ink);
   background: var(--ink);
-  box-shadow: 0 8px 18px rgba(18,16,12,.2);
-  font: 600 10px/1.2 'DM Mono', monospace;
-  letter-spacing: .075em;
-  text-transform: uppercase;
-  transform: rotate(2deg);
+  clip-path: polygon(50% 0%,57% 8%,66% 3%,70% 13%,81% 10%,83% 21%,95% 26%,91% 37%,100% 48%,92% 57%,97% 69%,85% 75%,84% 87%,72% 85%,64% 98%,54% 91%,44% 100%,37% 89%,25% 94%,22% 82%,10% 79%,14% 67%,1% 58%,9% 47%,3% 36%,16% 30%,17% 18%,29% 21%,37% 7%,46% 12%);
+  filter: drop-shadow(4px 5px 0 var(--ink)) drop-shadow(0 9px 11px rgba(18,16,12,.2));
+  text-align: center;
+  transform: rotate(7deg);
 }
-.availability-badge-dot { flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 3px rgba(208,184,80,.18); }
+.availability-badge::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 3px;
+  background: var(--lime);
+  clip-path: polygon(50% 0%,57% 8%,66% 3%,70% 13%,81% 10%,83% 21%,95% 26%,91% 37%,100% 48%,92% 57%,97% 69%,85% 75%,84% 87%,72% 85%,64% 98%,54% 91%,44% 100%,37% 89%,25% 94%,22% 82%,10% 79%,14% 67%,1% 58%,9% 47%,3% 36%,16% 30%,17% 18%,29% 21%,37% 7%,46% 12%);
+}
+.availability-badge-spark {
+  position: relative;
+  z-index: 1;
+  color: var(--orange);
+  font: 700 22px/1 'Space Grotesk', sans-serif;
+  text-shadow: 1px 1px 0 var(--ink);
+}
+.availability-badge-label {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  font: 700 12px/1.2 'DM Mono', monospace;
+  letter-spacing: .015em;
+  text-transform: uppercase;
+}
 .art-stack { position: relative; isolation: isolate; }
 .art-stack::before {
   content: '';
@@ -2275,7 +2295,7 @@ h1 span, h2 span,
   .home-hero::before { top: 43%; right: -8%; width: 100%; height: 47%; }
   .hero-copy { max-width: 680px; }
   .hero-art { width: min(100%,680px); margin-inline: auto; }
-  .availability-badge { top: 14px; right: 14px; padding: 9px 12px; font-size: 9px; }
+  .availability-badge { top: -14px; right: 8px; width: 118px; }
   .title-lead { font-size: clamp(42px,7.5vw,60px); }
   .title-word { font-size: clamp(88px,16vw,122px); }
   .title-follow { font-size: clamp(24px,5vw,30px); }
@@ -2309,7 +2329,9 @@ h1 span, h2 span,
   .home-hero .button { min-height: 48px; padding-inline: 12px; font-size: 13px; }
   .home-hero .text-link { font-size: 13px; }
   .offer-details { gap: 7px; margin-top: 16px; font-size: 12px; }
-  .availability-badge { top: 10px; right: 10px; gap: 7px; padding: 8px 10px; font-size: 8px; }
+  .availability-badge { top: -10px; right: 3px; width: 104px; }
+  .availability-badge-spark { font-size: 18px; }
+  .availability-badge-label { font-size: 10px; }
 }
 .privacy-hero { padding-block: 74px; }
 .privacy-hero h1 { margin-bottom: 14px; }
