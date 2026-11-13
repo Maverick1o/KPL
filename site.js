@@ -247,6 +247,9 @@ const formStatus = document.querySelector("#form-status");
 const isStudentRequest = interestFromLink === "student";
 const formEndpoint = "https://formsubmit.co/ajax/kevinkirkland0@gmail.com";
 const formSubmit = form?.querySelector(".form-submit");
+const giftRequestForm = document.querySelector("#gift-request-form");
+const giftRequestStatus = document.querySelector("#gift-request-status");
+const giftDeliveryDateInput = document.querySelector("#gift-delivery-date");
 
 const bookingRequestForm = document.querySelector("#booking-request-form");
 const bookingRequestStatus = document.querySelector("#booking-request-status");
@@ -268,6 +271,16 @@ form?.addEventListener("focusin", () => {
   form.dataset.analyticsStarted = "true";
   trackEvent("contact_form_start");
 });
+
+giftRequestForm?.addEventListener("focusin", () => {
+  if (giftRequestForm.dataset.analyticsStarted) return;
+  giftRequestForm.dataset.analyticsStarted = "true";
+  trackEvent("gift_request_start", { offer: "ai_build_kickstart" });
+});
+
+if (giftDeliveryDateInput) {
+  giftDeliveryDateInput.min = localDateTimeValues().date;
+}
 
 async function emailFormSubmission(values) {
   const payload = Object.fromEntries(values.entries());
@@ -357,6 +370,29 @@ bookingRequestForm?.addEventListener("submit", async (event) => {
     trackEvent("booking_request_error", { offer: "ai_build_kickstart" });
     bookingRequestStatus.classList.add("is-error");
     bookingRequestStatus.textContent = bookingRequestFailureMessage(error);
+  } finally {
+    submit.disabled = false;
+  }
+});
+
+giftRequestForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const submit = giftRequestForm.querySelector("button[type='submit']");
+  submit.disabled = true;
+  giftRequestStatus.hidden = false;
+  giftRequestStatus.classList.remove("is-error");
+  giftRequestStatus.textContent = "Sending your gift request…";
+  try {
+    await emailFormSubmission(new FormData(giftRequestForm));
+    trackEvent("gift_request_submit", { offer: "ai_build_kickstart" });
+    trackEvent("generate_lead", { lead_type: "gift_request" });
+    giftRequestForm.reset();
+    if (giftDeliveryDateInput) giftDeliveryDateInput.min = localDateTimeValues().date;
+    giftRequestStatus.textContent = "Thanks—your gift request is in. Kevin will confirm the details and send you a payment link for $447. The gift certificate will be sent after payment.";
+  } catch (error) {
+    trackEvent("gift_request_error", { offer: "ai_build_kickstart" });
+    giftRequestStatus.classList.add("is-error");
+    giftRequestStatus.textContent = bookingRequestFailureMessage(error);
   } finally {
     submit.disabled = false;
   }

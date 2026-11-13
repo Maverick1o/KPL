@@ -14,6 +14,7 @@ const sharePagePaths = {
   app: "app-building.html",
   booking: "booking.html",
   contact: "contact.html",
+  gift: "gift.html",
   pricing: "pricing.html",
   privacy: "privacy.html",
   students: "student-coaching.html",
@@ -28,10 +29,16 @@ const shareLinks = {
   x: `https://twitter.com/intent/tweet?text=${sharePostText}&url=${encodedSharePageUrl}`,
 };
 const currentNav = page === "contact" ? "" : page;
-const primaryRequestHref = page === "students"
-  ? "contact.html?interest=student#lead-form"
-  : "booking.html#booking-widget";
-const primaryRequestLabel = page === "students" ? "Request a student session" : "Request the AI Build Kickstart";
+const primaryRequestHref = page === "gift"
+  ? "#gift-request"
+  : page === "students"
+    ? "contact.html?interest=student#lead-form"
+    : "booking.html#booking-widget";
+const primaryRequestLabel = page === "gift"
+  ? "Request a gift certificate"
+  : page === "students"
+    ? "Request a student session"
+    : "Request the AI Build Kickstart";
 
 function header() {
   const links = navItems.map(([label, href, key]) => `
@@ -81,7 +88,7 @@ function footer() {
         </div>
         <nav class="footer-links" aria-label="Footer navigation">
           <div><h3>Explore</h3><a href="app-building.html">App coaching</a><a href="website-building.html">Website coaching</a><a href="student-coaching.html">Students</a></div>
-          <div><h3>More</h3><a href="pricing.html">Pricing</a><a href="about.html">About Kevin</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div>
+          <div><h3>More</h3><a href="pricing.html">Pricing</a><a href="gift.html">Gift the AI Build Kickstart</a><a href="about.html">About Kevin</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div>
         </nav>
       </div>
       <div class="shell footer-share">
@@ -179,7 +186,7 @@ const pageContent = {
           <p>Share buttons open the selected social network with the canonical public page URL. Those services handle any sharing activity under their own privacy policies. The “Copy link” option copies the canonical page URL to your clipboard.</p>
           <p>For details about Google's data practices, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use its services</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
           <h2>Booking and contact forms</h2>
-          <p>If you send a booking request or contact message, the information you enter—including your name, email address, phone number, requested time, and any optional note—is sent through FormSubmit to Kevin Kirkland so he can respond to your inquiry. These form details are not sent to Google Analytics.</p>
+          <p>If you send a booking request, contact message, or gift request, the information you enter may include your name, email address, phone number, requested session time, recipient’s name and optional email, requested delivery date, and any message. FormSubmit sends those details to Kevin Kirkland so he can respond to your inquiry. These form details are not sent to Google Analytics.</p>
           <h2>Your choices</h2>
           <p>Your choice is saved in this browser when storage is available, so the banner does not appear again. You can change it here: <button class="privacy-manage-analytics" type="button" data-analytics-preferences>Manage analytics choices</button>. You can also manage cookies through your browser settings. Google provides a <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">browser add-on to opt out of Google Analytics</a>. Cookie and privacy choices available to you may depend on your location.</p>
           <h2>Questions</h2>
@@ -214,7 +221,7 @@ const pageContent = {
             <p class="hero-lede">No coding experience or project idea needed. In two 90-minute sessions, I’ll help you choose a small first build and coach you as you make it with AI—so you leave knowing how to keep going on your own.</p>
             <ul class="project-types" aria-label="Project examples"><li>Apps</li><li>Websites</li><li>Digital tools</li><li>Automations</li></ul>
             <div class="hero-actions"><a class="button button-lime" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="#starter-offer">View Kickstart details</a></div>
-            <p class="offer-details"><strong>$447 total</strong><span aria-hidden="true">·</span><span>Two private 90-minute sessions</span><span aria-hidden="true">·</span><span>No payment until I confirm your time</span></p>
+            <p class="offer-details"><strong>$447 total</strong><span aria-hidden="true">·</span><span>Two private 90-minute sessions</span><span aria-hidden="true">·</span><span>No payment until I confirm your time</span><span aria-hidden="true">·</span><a href="gift.html" class="offer-gift-link">Give the Kickstart as a gift</a></p>
           </div>
           <figure class="hero-art">
             <div class="art-stack"><div class="art-plate"><img src="assets/home-build-with-ai-illustration.png" alt="A learner creates a digital project at a desk, with a coach guiding them on screen." /></div></div>
@@ -440,7 +447,7 @@ const pageContent = {
 
       ${faqSection({ title: "A few things you might be wondering." })}
 
-      <section class="cta-section home-starter-cta" id="starter-offer" data-parallax-bg="0.02"><div class="shell cta-card home-starter-card" data-parallax="0.018"><div class="home-starter-copy"><p class="eyebrow eyebrow-light">AI BUILD KICKSTART · LIMITED WEEKLY AVAILABILITY</p><h2>Your first AI build starts here.</h2><p>No coding experience or finished project idea needed. Across two focused sessions, we’ll choose a beginner-friendly first build, make real progress, and show you how to keep going on your own.</p><p class="home-starter-details"><strong>$447 total</strong><span aria-hidden="true">·</span><span>Two 90-minute sessions</span><span aria-hidden="true">·</span><span>$225 after time confirmation · $222 before session two</span></p></div><div class="home-starter-actions"><a class="button button-lime" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">Have a question? Message Kevin on Instagram <span aria-hidden="true">↗</span></a></div></div></section>
+      <section class="cta-section home-starter-cta" id="starter-offer" data-parallax-bg="0.02"><div class="shell cta-card home-starter-card" data-parallax="0.018"><div class="home-starter-copy"><p class="eyebrow eyebrow-light">AI BUILD KICKSTART · LIMITED WEEKLY AVAILABILITY</p><h2>Your first AI build starts here.</h2><p>No coding experience or finished project idea needed. Across two focused sessions, we’ll choose a beginner-friendly first build, make real progress, and show you how to keep going on your own.</p><p class="home-starter-details"><strong>$447 total</strong><span aria-hidden="true">·</span><span>Two 90-minute sessions</span><span aria-hidden="true">·</span><span>$225 after time confirmation · $222 before session two</span></p></div><div class="home-starter-actions"><a class="button button-lime" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="gift.html">Give the Kickstart as a gift</a><a class="text-link" href="${instagramDmHref}" target="_blank" rel="noopener noreferrer">Have a question? Message Kevin on Instagram <span aria-hidden="true">↗</span></a></div></div></section>
     </main>
   `,
   booking: `
@@ -458,6 +465,7 @@ const pageContent = {
             <div class="booking-panel-body">
               <h2>What are you curious to try?</h2>
               <p>No coding experience or finished project idea required. Share what you’re curious about, then choose a preferred time. I’ll confirm it or suggest another; your session isn’t booked until I confirm.</p>
+              <p class="booking-gift-switch">Booking for someone else? <a href="gift.html">Request a gift certificate instead.</a></p>
               <form class="booking-request-form" id="booking-request-form">
                 <fieldset class="booking-time-fields">
                   <legend>Preferred date and start time</legend>
@@ -475,7 +483,7 @@ const pageContent = {
                 <div class="booking-form-field"><label for="booking-phone">Phone</label><input id="booking-phone" name="phone" autocomplete="tel" type="tel" required /></div>
                 <div class="booking-form-field booking-curiosity-field"><label for="booking-curiosity">What would you like to explore? <span class="optional-label">Optional</span></label><textarea id="booking-curiosity" name="curiosity" rows="3" placeholder="An app, website, automation, question—or just ‘I’m curious’ is plenty."></textarea><p class="booking-field-help">You don’t need a polished idea. I can help you choose a starting point.</p></div>
                 <input id="booking-time-zone-value" name="time_zone" type="hidden" />
-                <input name="offer" type="hidden" value="AI Build Kickstart · $447 total" />
+        <input name="offer" type="hidden" value="AI Build Kickstart · $447 total" />
                 <input name="_subject" type="hidden" value="New AI Build Kickstart request" />
                 <button class="button button-lime booking-submit" type="submit">Request this session time</button>
                 <p class="booking-form-privacy">Your details go to Kevin’s inbox and are used only to follow up about this request.</p>
@@ -489,9 +497,98 @@ const pageContent = {
       ${faqSection({ title: "Before you request a time.", intro: "Here’s what to expect from the sessions, scheduling, and payment." })}
     </main>
   `,
+  gift: `
+    <main id="main" class="gift-page">
+      <section class="gift-hero">
+        <div class="shell gift-hero-grid">
+          <div class="gift-hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> A PRACTICAL GIFT FOR THE CURIOUS</p>
+            <h1>Give someone a guided start <span>with AI.</span></h1>
+            <p class="hero-lede">The AI Build Kickstart is two private one-on-one sessions with Kevin. You’ll give them room to explore an idea, build a small first project together, and learn how to keep going with AI.</p>
+            <div class="gift-price-callout"><div><span class="gift-price-label">THE COMPLETE TWO-SESSION GIFT</span><strong>$447</strong></div><p>Paid in full before the gift certificate is issued.</p></div>
+            <div class="hero-actions gift-hero-actions"><a class="button button-dark" href="#gift-request">Request a gift certificate</a><a class="text-link" href="contact.html">Ask Kevin a question</a></div>
+            <p class="gift-scheduling-note">The recipient chooses session times with Kevin later, based on availability.</p>
+          </div>
+          <div class="gift-art" aria-label="Gift preview for two private AI Build Kickstart coaching sessions">
+            <div class="gift-art-orbit" aria-hidden="true"></div>
+            <article class="gift-card-preview">
+              <div class="gift-card-topline"><span>KIRKLAND PRODUCT LAB</span><span class="gift-card-star" aria-hidden="true">✳</span></div>
+              <p class="gift-card-kicker">A GIFT FOR YOUR NEXT IDEA</p>
+              <h2>The AI<br /><em>Build Kickstart</em></h2>
+              <div class="gift-card-rule"></div>
+              <p class="gift-card-includes">Two private 90-minute sessions<br />One-on-one coaching with Kevin</p>
+              <div class="gift-card-bottom"><span>NO EXPERIENCE NEEDED</span><span>$447</span></div>
+            </article>
+            <p class="gift-art-caption">A thoughtful nudge to make something real.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="gift-steps-section">
+        <div class="shell">
+          <div class="gift-section-heading"><p class="eyebrow">SIMPLE TO GIVE</p><h2>Kevin will take it from here.</h2></div>
+          <div class="gift-steps-grid">
+            <article class="gift-step"><span>01</span><h3>Send the gift details</h3><p>Tell Kevin who it’s for and when you’d like the certificate delivered.</p></article>
+            <article class="gift-step"><span>02</span><h3>Confirm and pay</h3><p>Kevin will confirm the details and send you a payment link for the $447 total.</p></article>
+            <article class="gift-step"><span>03</span><h3>They choose a time</h3><p>After payment, the certificate goes to you or the recipient. They arrange their sessions with Kevin.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="gift-request-section" id="gift-request">
+        <div class="shell gift-request-grid">
+          <div class="gift-request-copy">
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> REQUEST A GIFT CERTIFICATE</p>
+            <h2>Who are you giving it to?</h2>
+            <p>Share a few details and Kevin will follow up with you directly. This form is a request, not an instant purchase; no payment is taken here.</p>
+            <div class="gift-request-summary"><span class="gift-request-summary-mark" aria-hidden="true">✳</span><div><strong>$447 paid in full</strong><p>Two private 90-minute sessions. The recipient can bring an idea, a question, or just curiosity—no coding experience needed.</p></div></div>
+            <p class="gift-availability-note">Session times are arranged after the gift is purchased and are subject to availability.</p>
+          </div>
+          <div class="form-card gift-form-card">
+            <div class="form-heading"><p class="eyebrow">SEND KEVIN THE DETAILS</p><h2>Plan your gift</h2><p>Fields marked <span aria-hidden="true">*</span> are required.</p></div>
+            <form class="gift-request-form" id="gift-request-form">
+              <div class="gift-form-row">
+                <div><label for="gift-buyer-name">Your name <span>*</span></label><input id="gift-buyer-name" name="name" autocomplete="name" required /></div>
+                <div><label for="gift-buyer-email">Your email <span>*</span></label><input id="gift-buyer-email" name="email" type="email" autocomplete="email" required /></div>
+              </div>
+              <div class="gift-form-row">
+                <div><label for="gift-recipient-name">Recipient’s name <span>*</span></label><input id="gift-recipient-name" name="recipient_name" autocomplete="off" required /></div>
+                <div><label for="gift-recipient-email">Recipient’s email <span class="optional-label">Optional</span></label><input id="gift-recipient-email" name="recipient_email" type="email" autocomplete="off" /><p class="gift-field-help">Add this if you’d like Kevin to send the certificate to them. Otherwise, it can go to you.</p></div>
+              </div>
+              <div class="gift-form-row gift-form-row-secondary">
+                <div><label for="gift-delivery-date">When should Kevin send it? <span class="optional-label">Optional</span></label><input id="gift-delivery-date" name="requested_delivery_date" type="date" /><p class="gift-field-help">A preferred date for Kevin to coordinate with you; it isn’t scheduled automatically.</p></div>
+                <div><label for="gift-message">Gift message <span class="optional-label">Optional</span></label><textarea id="gift-message" name="gift_message" rows="3" placeholder="Add a short note to include with the certificate."></textarea></div>
+              </div>
+              <input name="offer" type="hidden" value="AI Build Kickstart gift certificate · $447 paid in full" />
+              <input name="_subject" type="hidden" value="AI Build Kickstart gift certificate request" />
+              <label class="gift-consent-row"><input type="checkbox" name="permission" required /><span>I understand this is a request, not an instant purchase. Kevin will confirm the details and send me a payment link for $447. <b>*</b></span></label>
+              <button class="button button-lime gift-submit" type="submit">Send Kevin the gift details</button>
+              <p class="gift-form-privacy">Your details go to Kevin’s inbox through FormSubmit and are used to coordinate this gift. They are not sent to Google Analytics.</p>
+              <p class="form-status gift-form-status" id="gift-request-status" role="status" aria-live="polite" hidden></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      ${faqSection({
+        id: "gift-faq",
+        eyebrow: "GIFT FAQ",
+        title: "A few helpful details.",
+        intro: "Know what’s included and what happens after you send the request.",
+        items: [
+          ["What does the $447 gift include?", "Two private 90-minute one-on-one sessions with Kevin: three hours of guided, hands-on AI building. The recipient chooses a small first project with Kevin and learns how to continue on their own."],
+          ["Does the recipient need coding experience or a project idea?", "No. The Kickstart is designed for beginners. They can bring a goal, a question, or just curiosity; Kevin will help them find a useful starting point."],
+          ["How does payment and delivery work?", "After you submit the request, Kevin will confirm the recipient and delivery details and send you a payment link for the full $447. The gift certificate is sent after payment. It can be sent to you or, if you provide their email, directly to the recipient."],
+          ["How does the recipient schedule the sessions?", "They contact Kevin to arrange two 90-minute sessions. Times are coordinated after purchase and depend on availability."],
+          ["Can I give this to someone under 18?", "Yes. For a recipient under 18, a parent or guardian should contact Kevin to arrange the sessions and be involved in the process."],
+        ],
+      })}
+      <section class="cta-section gift-bottom-cta"><div class="shell cta-card"><div><p class="eyebrow eyebrow-light">A GOOD GIFT FOR A CURIOUS BUILDER</p><h2>Help them turn curiosity into a first build.</h2><p>Two private sessions to get started with AI and learn a process they can use again.</p></div><a class="button button-lime" href="#gift-request">Request a gift certificate</a></div></section>
+    </main>
+  `,
   app: `
     <main id="main">
-      <section class="detail-hero app-detail-hero"><div class="shell detail-grid"><div class="detail-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> AI APP-BUILDING COACHING</p><h1>Curious about building an app?<br /><span>Let’s find your first step.</span></h1><p class="hero-lede">No coding experience or finished project idea needed. Bring a question, rough goal, or just curiosity; we’ll choose a small first build and I’ll show you how to keep going with AI.</p><div class="hero-actions"><a class="button button-dark" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="contact.html?interest=app">Ask about app coaching</a></div><aside class="detail-offer-summary" aria-label="AI Build Kickstart price and what's included"><div class="detail-offer-heading"><div><span class="detail-offer-kicker">AI BUILD KICKSTART</span><strong>$447 <small>total</small></strong></div><span class="detail-offer-duration">2 × 90-minute sessions</span></div><p>Start with a question or something you’re curious about, build a small first version, and learn a process you can reuse.</p><div class="detail-offer-footer"><span>No payment until I confirm your time</span><a href="pricing.html">See payment details <span aria-hidden="true">↗</span></a></div></aside><p class="fine-print">You can start with a question or curiosity. No coding experience or polished plan needed.</p></div><figure class="comic-frame"><img src="assets/app-coaching-comic-isometric.png" alt="An architectural five-panel comic showing a beginner and coach choosing a first app build, learning during remote sessions, and continuing with confidence." /><figcaption>Start together. Learn the process. Keep building.</figcaption></figure></div></section>
+      <section class="detail-hero app-detail-hero"><div class="shell detail-grid"><div class="detail-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> AI APP-BUILDING COACHING</p><h1>Curious about building an app?<br /><span>Let’s find your first step.</span></h1><p class="hero-lede">No coding experience or finished project idea needed. Bring a question, rough goal, or just curiosity; we’ll choose a small first build and I’ll show you how to keep going with AI.</p><div class="hero-actions"><a class="button button-dark" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="contact.html?interest=app">Ask about app coaching</a></div><aside class="detail-offer-summary" aria-label="AI Build Kickstart price and what's included"><div class="detail-offer-heading"><div><span class="detail-offer-kicker">AI BUILD KICKSTART</span><strong>$447 <small>total</small></strong></div><span class="detail-offer-duration">2 × 90-minute sessions</span></div><p>Start with a question or something you’re curious about, build a small first version, and learn a process you can reuse.</p><div class="detail-offer-footer"><span>No payment until I confirm your time</span><a href="pricing.html">See payment details <span aria-hidden="true">↗</span></a></div></aside><p class="detail-gift-link">Buying for someone else? <a href="gift.html">Give the AI Build Kickstart as a gift.</a></p><p class="fine-print">You can start with a question or curiosity. No coding experience or polished plan needed.</p></div><figure class="comic-frame"><img src="assets/app-coaching-comic-isometric.png" alt="An architectural five-panel comic showing a beginner and coach choosing a first app build, learning during remote sessions, and continuing with confidence." /><figcaption>Start together. Learn the process. Keep building.</figcaption></figure></div></section>
       <section class="section"><div class="shell two-col-section"><div><p class="eyebrow">HANDS-ON FROM THE START</p><h2>Turn curiosity into a first build.</h2></div><div><p class="section-lede">We’ll find a useful starting point for exploring app building. That could mean shaping a rough idea, mapping a first version, trying an AI-assisted coding workflow, or building a small feature together.</p><p>You’ll see how I break down a project, give AI the right context, guide its work, check the result, and recover when it goes sideways. Then you can use that process on the next step.</p></div></div></section>
       <section class="section soft-section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">WHAT YOU’LL PRACTICE</p><h2>Useful skills for the next feature, too.</h2></div><p>We’ll tailor the work to what interests you and your starting point. These are examples, not a fixed curriculum.</p></div><div class="feature-grid"><article><span>01</span><h3>Shape a buildable idea</h3><p>Turn a broad concept into a clear next step and a small first version.</p></article><article><span>02</span><h3>Guide AI with context</h3><p>Learn how to explain what you want, guide AI through changes, and check the result without needing every technical detail.</p></article><article><span>03</span><h3>Review and troubleshoot</h3><p>Check what AI produces, spot issues, and get unstuck without starting over.</p></article></div></div></section>
       ${faqSection({ title: "Questions before your first build?" })}
@@ -500,7 +597,7 @@ const pageContent = {
   `,
   website: `
     <main id="main">
-      <section class="detail-hero"><div class="shell detail-grid"><div class="detail-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> AI WEBSITE-BUILDING COACHING</p><h1>Your website should be easier to <span>change, improve, and own.</span></h1><p class="hero-lede">You don’t need coding experience to improve your business website. We’ll work on a real site together and I’ll teach you to make everyday updates with AI, so you can handle more yourself.</p><div class="hero-actions"><a class="button button-dark" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="contact.html?interest=website">Ask about website coaching</a></div><aside class="detail-offer-summary" aria-label="AI Build Kickstart price and what's included"><div class="detail-offer-heading"><div><span class="detail-offer-kicker">AI BUILD KICKSTART</span><strong>$447 <small>total</small></strong></div><span class="detail-offer-duration">2 × 90-minute sessions</span></div><p>Make a first update to your business website and learn a repeatable AI workflow—even if you’ve never built a site.</p><div class="detail-offer-footer"><span>No payment until I confirm your time</span><a href="pricing.html">See payment details <span aria-hidden="true">↗</span></a></div></aside></div><figure class="scene-frame"><img src="assets/website-coaching-cutaway.png" alt="A business owner editing a website in a bright architectural cutaway studio, with a laptop and separate monitor showing page layouts." /><figcaption><span class="caption-dot"></span> Your site · Your decisions · Skills you can reuse</figcaption></figure></div></section>
+      <section class="detail-hero"><div class="shell detail-grid"><div class="detail-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> AI WEBSITE-BUILDING COACHING</p><h1>Your website should be easier to <span>change, improve, and own.</span></h1><p class="hero-lede">You don’t need coding experience to improve your business website. We’ll work on a real site together and I’ll teach you to make everyday updates with AI, so you can handle more yourself.</p><div class="hero-actions"><a class="button button-dark" href="booking.html#booking-widget">Request the AI Build Kickstart</a><a class="text-link" href="contact.html?interest=website">Ask about website coaching</a></div><aside class="detail-offer-summary" aria-label="AI Build Kickstart price and what's included"><div class="detail-offer-heading"><div><span class="detail-offer-kicker">AI BUILD KICKSTART</span><strong>$447 <small>total</small></strong></div><span class="detail-offer-duration">2 × 90-minute sessions</span></div><p>Make a first update to your business website and learn a repeatable AI workflow—even if you’ve never built a site.</p><div class="detail-offer-footer"><span>No payment until I confirm your time</span><a href="pricing.html">See payment details <span aria-hidden="true">↗</span></a></div></aside><p class="detail-gift-link">Buying for someone else? <a href="gift.html">Give the AI Build Kickstart as a gift.</a></p></div><figure class="scene-frame"><img src="assets/website-coaching-cutaway.png" alt="A business owner editing a website in a bright architectural cutaway studio, with a laptop and separate monitor showing page layouts." /><figcaption><span class="caption-dot"></span> Your site · Your decisions · Skills you can reuse</figcaption></figure></div></section>
       <section class="section"><div class="shell two-col-section"><div><p class="eyebrow">FOR SMALL BUSINESSES &amp; INDEPENDENT OWNERS</p><h2>Stop putting the simple updates on hold.</h2></div><div><p class="section-lede">Maybe the site needs a refresh, or you want to add a service, update a page, or fix something you’ve been putting off. You don’t need coding experience or knowledge of the tools—we’ll work on your real site and learn the process together.</p><p>I’ll show you how to make common changes, keep your content current, and recognize when a task needs deeper technical help. You build confidence and keep control of your website.</p></div></div></section>
       <section class="section soft-section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">WE CAN WORK ON</p><h2>Make the next update feel manageable.</h2></div><p>We’ll choose a useful scope based on your current site and what you want to do next.</p></div><div class="feature-grid"><article><span>01</span><h3>Build or refresh</h3><p>Start a simple new site or improve the one you already have.</p></article><article><span>02</span><h3>Make everyday edits</h3><p>Practice updating copy, images, pages, services, and basic site content with AI.</p></article><article><span>03</span><h3>Know what’s safe to change</h3><p>Learn a repeatable workflow and when a job deserves specialist support.</p></article></div></div></section>
       ${faqSection({ title: "Questions before your first build?" })}
@@ -511,7 +608,7 @@ const pageContent = {
     <main id="main">
       <section class="detail-hero student-hero"><div class="shell detail-grid"><div class="detail-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> FOR HIGH SCHOOL &amp; COLLEGE STUDENTS</p><h1>Curious about tech?<br /><span>Try it by making something real.</span></h1><p class="hero-lede">A low-pressure, hands-on way to explore AI, app building, coding, and prompting—before deciding whether technology is something you want to pursue.</p><div class="hero-actions"><a class="button button-dark" href="contact.html?interest=student#lead-form">Request a student session</a><a class="text-link" href="pricing.html">See how pricing works</a></div><p class="fine-print">No experience required. Parents and guardians are welcome to reach out.</p></div><figure class="scene-frame"><img src="assets/student-coaching-cutaway.png" alt="A college-age student building an app in a vivid blue cutaway studio while a coach joins by video call." /><figcaption><span class="caption-dot"></span> Make a start · Learn by doing · See what clicks</figcaption></figure></div></section>
       <section class="section"><div class="shell two-col-section"><div><p class="eyebrow">A SMALL COMMITMENT. SKILLS THAT TRAVEL.</p><h2>Find out if building with tech feels like your thing.</h2></div><div><p class="section-lede">You don’t have to choose a major or have a career plan. Bring a curiosity or a small idea, and we’ll try building something with AI together.</p><p>Along the way, you can learn how to break down a problem, ask better questions, work with AI tools, understand basic code, and test what you make. Those skills can be useful in almost any future path.</p></div></div></section>
-      <section class="section soft-section"><div class="shell student-split"><div><p class="eyebrow">WHAT A STUDENT CAN EXPLORE</p><h2>One project can answer a lot of questions.</h2><div class="student-list"><p><span>↗</span> What app building and coding actually feel like</p><p><span>↗</span> How to use AI as a creative and problem-solving tool</p><p><span>↗</span> How ideas become a simple working prototype</p><p><span>↗</span> Whether they’d like to keep exploring technology</p></div></div><aside class="parent-note"><span class="parent-note-mark">KPL</span><p class="eyebrow">FOR PARENTS &amp; GUARDIANS</p><h3>Let them try the work before choosing the path.</h3><p>It’s a practical introduction to building with AI, guided by an experienced software consultant. For students under 18, please have a parent or guardian start the conversation.</p><a class="text-link" href="contact.html?interest=student">Ask Kevin about student coaching <span aria-hidden="true">↗</span></a></aside></div></section>
+      <section class="section soft-section"><div class="shell student-split"><div><p class="eyebrow">WHAT A STUDENT CAN EXPLORE</p><h2>One project can answer a lot of questions.</h2><div class="student-list"><p><span>↗</span> What app building and coding actually feel like</p><p><span>↗</span> How to use AI as a creative and problem-solving tool</p><p><span>↗</span> How ideas become a simple working prototype</p><p><span>↗</span> Whether they’d like to keep exploring technology</p></div></div><aside class="parent-note"><span class="parent-note-mark">KPL</span><p class="eyebrow">FOR PARENTS &amp; GUARDIANS</p><h3>Let them try the work before choosing the path.</h3><p>It’s a practical introduction to building with AI, guided by an experienced software consultant. For students under 18, please have a parent or guardian start the conversation.</p><a class="text-link" href="contact.html?interest=student">Ask Kevin about student coaching <span aria-hidden="true">↗</span></a><p class="parent-gift-link">Looking for a gift for a student? <a href="gift.html">Gift the AI Build Kickstart.</a></p></aside></div></section>
       ${faqSection({ id: "student-faq", eyebrow: "FOR STUDENTS & FAMILIES", title: "A few things students and parents ask.", intro: "A low-pressure introduction, shaped around the student’s interests and starting point.", items: [
         ["Does the student need coding experience or a project idea?", "No. The sessions start with curiosity. Kevin helps the student choose a small, hands-on project that fits their interests and experience."],
         ["What will the student do in a session?", "They’ll build alongside Kevin, try AI as a creative tool, and learn how ideas become a simple prototype. It’s guided practice, not a lecture."],
@@ -523,7 +620,7 @@ const pageContent = {
   `,
   pricing: `
     <main id="main">
-      <section class="page-hero price-hero"><div class="shell price-hero-grid"><div class="price-hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> HANDS-ON AI BUILDING · REMOTE 1:1</p><h1>Curious about building with AI?<br /><span>Start with something real.</span></h1><p class="hero-lede">No coding experience or polished project idea needed. The $447 AI Build Kickstart gives you two 90-minute sessions to choose a useful first build, make progress together, and learn a process you can use on your next idea.</p><div class="price-hero-points"><span><i aria-hidden="true">✓</i> A beginner-friendly first build</span><span><i aria-hidden="true">✓</i> No ongoing commitment</span></div></div><aside class="price-summary" id="starter" aria-label="AI Build Kickstart price and booking"><div class="price-summary-top"><p class="eyebrow">AI BUILD KICKSTART</p><span class="price-rate-badge">PRIVATE 1:1 · LIMITED WEEKLY AVAILABILITY</span></div><div class="price-summary-main"><div><span class="price-total-label">TOTAL INVESTMENT</span><p class="price-total"><span>$</span>447 <small>total</small></p></div><div class="price-session-count"><strong>3 hours</strong><span>private, live build time</span></div></div><div class="price-session-format">Two private 90-minute sessions</div><a class="button button-lime price-primary-cta" href="booking.html#booking-widget">Request the AI Build Kickstart</a><p class="price-summary-note">No payment until I confirm your time. Then $225 to reserve; the remaining $222 is due before session two.</p><div class="price-assurance"><span aria-hidden="true">✳</span> You’ll know the time, scope, and price before any payment.</div></aside></div></section>
+      <section class="page-hero price-hero"><div class="shell price-hero-grid"><div class="price-hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> HANDS-ON AI BUILDING · REMOTE 1:1</p><h1>Curious about building with AI?<br /><span>Start with something real.</span></h1><p class="hero-lede">No coding experience or polished project idea needed. The $447 AI Build Kickstart gives you two 90-minute sessions to choose a useful first build, make progress together, and learn a process you can use on your next idea.</p><div class="price-hero-points"><span><i aria-hidden="true">✓</i> A beginner-friendly first build</span><span><i aria-hidden="true">✓</i> No ongoing commitment</span></div></div><aside class="price-summary" id="starter" aria-label="AI Build Kickstart price and booking"><div class="price-summary-top"><p class="eyebrow">AI BUILD KICKSTART</p><span class="price-rate-badge">PRIVATE 1:1 · LIMITED WEEKLY AVAILABILITY</span></div><div class="price-summary-main"><div><span class="price-total-label">TOTAL INVESTMENT</span><p class="price-total"><span>$</span>447 <small>total</small></p></div><div class="price-session-count"><strong>3 hours</strong><span>private, live build time</span></div></div><div class="price-session-format">Two private 90-minute sessions</div><a class="button button-lime price-primary-cta" href="booking.html#booking-widget">Request the AI Build Kickstart</a><p class="price-summary-note">No payment until I confirm your time. Then $225 to reserve; the remaining $222 is due before session two.</p><div class="price-assurance"><span aria-hidden="true">✳</span> You’ll know the time, scope, and price before any payment.</div><p class="price-gift-link">Buying for someone else? <a href="gift.html">Gift the AI Build Kickstart.</a></p></aside></div></section>
       <section class="section price-value-section"><div class="shell"><div class="section-heading price-value-heading"><div><p class="eyebrow">WHAT YOUR $447 INCLUDES</p><h2>Start with curiosity.<br /><span>Leave with momentum.</span></h2></div><p>Start with what you’re curious about. We’ll choose a beginner-friendly first step and build alongside you.</p></div><div class="price-value-grid"><article><span>01</span><h3>A clear first milestone</h3><p>We’ll turn your interest or rough goal into a clear first step and decide what’s realistic to tackle together.</p></article><article><span>02</span><h3>Build alongside Kevin</h3><p>Make a useful first version. I’ll show you how to guide AI, understand key decisions, and get unstuck as you work.</p></article><article><span>03</span><h3>A way to keep moving</h3><p>Leave knowing what you made, what to try next, and how to keep building with AI on your own.</p></article></div></div></section>
       <section class="price-payment-section"><div class="shell price-payment-grid"><div class="price-payment-copy"><p class="eyebrow">STRAIGHTFORWARD PAYMENT</p><h2>One price.<br /><span>Split into two.</span></h2><p>Request a preferred time first. There’s nothing to pay until I confirm it with you.</p><div class="price-payment-facts"><span>Remote, one-on-one</span><span>Two 90-minute sessions</span><span>No automatic enrollment</span></div></div><div class="price-payment-card"><div class="payment-total-row"><span>Two-session total</span><strong>$447</strong></div><div class="payment-step-row"><span><i>01</i> After I confirm your time</span><strong>$225</strong></div><div class="payment-step-row"><span><i>02</i> Before session two</span><strong>$222</strong></div><a class="button button-dark" href="booking.html#booking-widget">Request the AI Build Kickstart</a><p>Requesting a time is free. I’ll confirm it or suggest another time before you pay.</p></div></div></section>
       ${faqSection({ title: "Clear answers before you book.", intro: "See how the sessions work, what the price covers, and what to expect when you request a time." })}

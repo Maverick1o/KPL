@@ -7,6 +7,7 @@ const pages = {
   "app-building.html": "app",
   "booking.html": "booking",
   "contact.html": "contact",
+  "gift.html": "gift",
   "pricing.html": "pricing",
   "privacy.html": "privacy",
   "student-coaching.html": "students",
