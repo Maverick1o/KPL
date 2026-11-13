@@ -862,7 +862,7 @@ h1 span, h2 span,
 @media (max-width: 800px) {
   .site-header .nav-shell { width: min(calc(100% - 40px), 680px); }
   .site-header .primary-nav { margin-right: 0; }
-  .primary-nav { background: rgba(240,232,216,.98); }
+  .primary-nav { background: #f0e8d8; }
   .home-hero::before { top: 47%; right: -8%; bottom: 5%; left: 4%; clip-path: polygon(9% 4%,100% 0,96% 88%,74% 100%,12% 91%,0 38%); }
   .home-hero .hero-grid { width: min(calc(100% - 40px),680px); min-height: 0; grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "copy" "art" "rail"; row-gap: 0; padding: 48px 0 58px; }
   .hero-copy { max-width: 630px; }
