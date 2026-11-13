@@ -503,7 +503,7 @@ const pageContent = {
         <div class="shell gift-hero-grid">
           <div class="gift-hero-copy">
             <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> A PRACTICAL GIFT FOR THE CURIOUS</p>
-            <h1>Give someone a guided start <span>with AI.</span></h1>
+            <h1>Give the gift of<br />learning to build <span>with AI.</span></h1>
             <p class="hero-lede">The AI Build Kickstart is two private one-on-one sessions with Kevin. You’ll give them room to explore an idea, build a small first project together, and learn how to keep going with AI.</p>
             <div class="gift-price-callout"><div><span class="gift-price-label">THE COMPLETE TWO-SESSION GIFT</span><strong>$447</strong></div><p>Paid in full before the gift certificate is issued.</p></div>
             <div class="hero-actions gift-hero-actions"><a class="button button-dark" href="#gift-request">Request a gift certificate</a><a class="text-link" href="contact.html">Ask Kevin a question</a></div>

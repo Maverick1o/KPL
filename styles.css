@@ -2374,7 +2374,7 @@ h1 span, h2 span,
 .gift-hero::before { position: absolute; top: -190px; right: -160px; width: 620px; height: 620px; border: 1px solid rgba(232,48,24,.17); border-radius: 50%; box-shadow: 0 0 0 22px rgba(232,48,24,.035), 0 0 0 56px rgba(64,112,168,.04); content: ''; pointer-events: none; }
 .gift-hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, .97fr) minmax(390px, 1.03fr); align-items: center; gap: clamp(44px, 7vw, 96px); }
 .gift-hero-copy { position: relative; z-index: 1; }
-.gift-hero-copy h1 { max-width: 670px; margin-bottom: 21px; font-size: clamp(49px, 6.1vw, 76px); }
+.gift-hero-copy h1 { max-width: 670px; margin-bottom: 21px; font-size: clamp(49px, 5.1vw, 64px); }
 .gift-hero-copy .hero-lede { max-width: 600px; color: #58636a; }
 .gift-price-callout { display: flex; align-items: center; gap: 19px; max-width: 535px; margin-top: 27px; padding: 15px 19px; border: 1px solid rgba(36,25,15,.12); border-radius: 12px 4px 12px 4px; background: rgba(248,241,220,.78); }
 .gift-price-callout > div { display: grid; gap: 3px; }
@@ -2460,7 +2460,7 @@ h1 span, h2 span,
 }
 @media (max-width: 520px) {
   .gift-hero { padding-block: 48px 63px; }
-  .gift-hero-copy h1 { font-size: clamp(43px, 12vw, 58px); }
+  .gift-hero-copy h1 { font-size: clamp(38px, 10vw, 48px); }
   .gift-hero-copy .hero-lede { font-size: 17px; }
   .gift-price-callout { align-items: flex-start; gap: 13px; padding: 14px; }
   .gift-price-label { max-width: 145px; font-size: 8px; }
