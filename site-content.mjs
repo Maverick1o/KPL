@@ -126,12 +126,20 @@ const kickstartFaqItems = [
     "We’ll agree on a focused first milestone that fits three hours—often a simple first version or a useful improvement. A larger idea may need more work afterward.",
   ],
   [
+    "How do the sessions work, and what do I need?",
+    "Sessions are live and remote over a video call with screen sharing, so you can work from home. You’ll need a computer (a laptop or desktop, not just a phone) and a steady internet connection. I’ll send the call link with your prep details.",
+  ],
+  [
     "Do I need to pay for AI tools?",
     "We’ll choose tools that fit the project and your budget. If a paid plan is needed, I’ll discuss it with you before you sign up or pay for anything.",
   ],
   [
     "How do scheduling and payment work?",
     "Request a preferred time for free. I’ll confirm it or suggest another. After confirmation, $225 reserves the first session; $222 is due before session two.",
+  ],
+  [
+    "What if I need to reschedule?",
+    "Life happens. Let me know as early as you can, and we’ll find another time that works for both sessions.",
   ],
   [
     "What happens after the two sessions?",
@@ -484,7 +492,7 @@ const pageContent = {
                   <div class="booking-form-field"><label for="booking-name">Name</label><input id="booking-name" name="name" autocomplete="name" type="text" required /></div>
                   <div class="booking-form-field"><label for="booking-email">Email</label><input id="booking-email" name="email" autocomplete="email" type="email" required /></div>
                 </div>
-                <div class="booking-form-field"><label for="booking-phone">Phone</label><input id="booking-phone" name="phone" autocomplete="tel" type="tel" required /></div>
+                <div class="booking-form-field"><label for="booking-phone">Phone <span class="optional-label">Optional</span></label><input id="booking-phone" name="phone" autocomplete="tel" type="tel" /></div>
                 <div class="booking-form-field booking-curiosity-field"><label for="booking-curiosity">What would you like to explore? <span class="optional-label">Optional</span></label><textarea id="booking-curiosity" name="curiosity" rows="3" placeholder="An app, website, automation, question—or just ‘I’m curious’ is plenty."></textarea><p class="booking-field-help">You don’t need a polished idea. I can help you choose a starting point.</p></div>
                 <input id="booking-time-zone-value" name="time_zone" type="hidden" />
         <input name="offer" type="hidden" value="AI Build Kickstart · $447 total" />
