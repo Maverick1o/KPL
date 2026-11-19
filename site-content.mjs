@@ -127,7 +127,7 @@ const kickstartFaqItems = [
   ],
   [
     "How do the sessions work, and what do I need?",
-    "Sessions are live and remote over a video call with screen sharing, so you can work from home. You’ll need a computer (a laptop or desktop, not just a phone) and a steady internet connection. I’ll send the call link with your prep details.",
+    "Sessions are live and remote on Google Meet with screen sharing, so you can work from home—it runs in your web browser, with no download needed. You’ll need a computer (a laptop or desktop, not just a phone) and a steady internet connection. I’ll send the Meet link with your prep details.",
   ],
   [
     "Do I need to pay for AI tools?",
