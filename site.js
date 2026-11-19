@@ -52,7 +52,7 @@ function showAnalyticsConsent() {
   banner.innerHTML = `
     <div class="analytics-consent-copy">
       <strong>Help improve this site?</strong>
-      <p>Optional Google Analytics measures visits and interactions. You can allow or decline it; see the <a href="privacy.html">privacy page</a>.</p>
+      <p>Optional Google Analytics measures visits and interactions. You can allow or decline it. This site also uses the Meta Pixel to measure ads; see the <a href="privacy.html">privacy page</a>.</p>
     </div>
     <div class="analytics-consent-actions">
       <button class="analytics-choice analytics-choice-decline" type="button" data-analytics-decline>Decline</button>
