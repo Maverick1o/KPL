@@ -83,6 +83,27 @@ function trackEvent(name, parameters = {}) {
   });
 }
 
+// Meta Pixel Lead: fires at most once per request type per browser session,
+// and only from a form's success path (never on load or click).
+const metaLeadsFired = new Set();
+
+function fireMetaLead(contentName) {
+  if (metaLeadsFired.has(contentName) || typeof window.fbq !== "function") return;
+  const storageKey = `kpl-meta-lead:${contentName}`;
+  try {
+    if (window.sessionStorage.getItem(storageKey)) return;
+    window.sessionStorage.setItem(storageKey, "1");
+  } catch {
+    // Storage can be blocked; the in-memory guard still prevents repeats on this page.
+  }
+  metaLeadsFired.add(contentName);
+  window.fbq("track", "Lead", {
+    content_name: contentName,
+    value: 447.0,
+    currency: "USD",
+  });
+}
+
 function ctaPlacement(link) {
   if (link.closest(".primary-nav")) return "navigation";
   if (link.closest(".home-hero")) return "home_hero";
@@ -362,6 +383,7 @@ bookingRequestForm?.addEventListener("submit", async (event) => {
   try {
     await emailFormSubmission(values);
     trackEvent("booking_request_submit", { offer: "ai_build_kickstart" });
+    fireMetaLead("AI Build Kickstart Time Request");
     bookingRequestForm.reset();
     updateBookingTimeMinimum();
     timeZoneInput.value = localTimeZone;
@@ -386,6 +408,7 @@ giftRequestForm?.addEventListener("submit", async (event) => {
     await emailFormSubmission(new FormData(giftRequestForm));
     trackEvent("gift_request_submit", { offer: "ai_build_kickstart" });
     trackEvent("generate_lead", { lead_type: "gift_request" });
+    fireMetaLead("AI Build Kickstart Gift Request");
     giftRequestForm.reset();
     if (giftDeliveryDateInput) giftDeliveryDateInput.min = localDateTimeValues().date;
     giftRequestStatus.textContent = "Thanks—your gift request is in. Kevin will confirm the details and send you a payment link for $447. The gift certificate will be sent after payment.";
