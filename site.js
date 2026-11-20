@@ -2,7 +2,10 @@ import { renderSite } from "./site-content.mjs";
 
 const page = document.body.dataset.page || "home";
 const GA4_MEASUREMENT_ID = "G-Y8Q414E2YG";
+// Tracking choice: "denied" means this browser opted out of Google Analytics and the
+// Meta Pixel (the pixel snippet in each page <head> checks the same key).
 const ANALYTICS_CONSENT_KEY = "kpl-analytics-consent";
+const TRACKING_NOTICE_KEY = "kpl-tracking-notice-dismissed";
 let analyticsInitialized = false;
 
 function initGoogleAnalytics(measurementId) {
@@ -24,54 +27,73 @@ function initGoogleAnalytics(measurementId) {
   document.head.append(script);
 }
 
-function getAnalyticsConsent() {
+function readStorage(key) {
   try {
-    return window.localStorage.getItem(ANALYTICS_CONSENT_KEY);
+    return window.localStorage.getItem(key);
   } catch {
     return null;
   }
 }
 
-function setAnalyticsConsent(choice) {
+function writeStorage(key, value) {
   try {
-    window.localStorage.setItem(ANALYTICS_CONSENT_KEY, choice);
+    if (value === null) window.localStorage.removeItem(key);
+    else window.localStorage.setItem(key, value);
   } catch {
-    // Keep this page's choice even when the browser blocks local storage.
+    // Storage can be blocked; the choice then lasts for this page only.
   }
-  window[`ga-disable-${GA4_MEASUREMENT_ID}`] = choice !== "granted";
-  document.querySelector("#analytics-consent")?.remove();
-  if (choice === "granted") initGoogleAnalytics(GA4_MEASUREMENT_ID);
 }
 
-function showAnalyticsConsent() {
+function isTrackingOptedOut() {
+  return readStorage(ANALYTICS_CONSENT_KEY) === "denied";
+}
+
+function showTrackingNotice() {
   if (document.querySelector("#analytics-consent")) return;
   const banner = document.createElement("aside");
   banner.id = "analytics-consent";
   banner.className = "analytics-consent";
-  banner.setAttribute("aria-label", "Analytics privacy choices");
+  banner.setAttribute("aria-label", "Analytics notice");
   banner.innerHTML = `
     <div class="analytics-consent-copy">
-      <strong>Help improve this site?</strong>
-      <p>Optional Google Analytics measures visits and interactions. You can allow or decline it. This site also uses the Meta Pixel to measure ads; see the <a href="privacy.html">privacy page</a>.</p>
+      <strong>About analytics on this site</strong>
+      <p>This site uses Google Analytics and the Meta Pixel to understand visits and measure ads. You can opt out on the <a href="privacy.html#your-choices">privacy page</a>.</p>
     </div>
     <div class="analytics-consent-actions">
-      <button class="analytics-choice analytics-choice-decline" type="button" data-analytics-decline>Decline</button>
-      <button class="analytics-choice analytics-choice-allow" type="button" data-analytics-allow>Allow analytics</button>
+      <button class="analytics-choice analytics-choice-allow" type="button" data-tracking-notice-ok>OK</button>
     </div>
   `;
-  banner.querySelector("[data-analytics-decline]").addEventListener("click", () => setAnalyticsConsent("denied"));
-  banner.querySelector("[data-analytics-allow]").addEventListener("click", () => setAnalyticsConsent("granted"));
+  banner.querySelector("[data-tracking-notice-ok]").addEventListener("click", () => {
+    writeStorage(TRACKING_NOTICE_KEY, "1");
+    banner.remove();
+  });
   document.body.append(banner);
 }
 
-const savedAnalyticsConsent = getAnalyticsConsent();
-if (savedAnalyticsConsent === "granted") initGoogleAnalytics(GA4_MEASUREMENT_ID);
-else if (savedAnalyticsConsent !== "denied") showAnalyticsConsent();
+function updateTrackingChoiceButtons() {
+  const optedOut = isTrackingOptedOut();
+  document.querySelectorAll("[data-tracking-optout]").forEach((button) => {
+    button.textContent = optedOut ? "Turn analytics back on for this browser" : "Opt out of analytics and ad tracking";
+  });
+  document.querySelectorAll("[data-tracking-status]").forEach((status) => {
+    status.textContent = optedOut
+      ? "You’ve opted out in this browser. Google Analytics and the Meta Pixel won’t load here."
+      : "Analytics and ad measurement are on in this browser.";
+  });
+}
+
+if (!isTrackingOptedOut()) initGoogleAnalytics(GA4_MEASUREMENT_ID);
+if (!readStorage(TRACKING_NOTICE_KEY)) showTrackingNotice();
+updateTrackingChoiceButtons();
 
 document.addEventListener("click", (event) => {
-  const preferencesButton = event.target.closest("[data-analytics-preferences]");
-  if (!preferencesButton) return;
-  showAnalyticsConsent();
+  const optOutButton = event.target.closest("[data-tracking-optout]");
+  if (!optOutButton) return;
+  const optingOut = !isTrackingOptedOut();
+  writeStorage(ANALYTICS_CONSENT_KEY, optingOut ? "denied" : null);
+  window[`ga-disable-${GA4_MEASUREMENT_ID}`] = optingOut;
+  if (!optingOut) initGoogleAnalytics(GA4_MEASUREMENT_ID);
+  updateTrackingChoiceButtons();
 });
 
 function trackEvent(name, parameters = {}) {

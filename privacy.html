@@ -9,9 +9,12 @@
     <meta name="theme-color" content="#f0e8d8" />
     <link rel="icon" href="assets/kpl-icon.png" />
     <link rel="stylesheet" href="styles.css?v=kpl-intro-call-20261119" />
-    <script type="module" src="site.js?v=kpl-intro-call-20261119"></script>
+    <script type="module" src="site.js?v=kpl-notice-only-20261119"></script>
     <!-- Meta Pixel Code -->
     <script>
+var kplTrackingOptOut = false;
+try { kplTrackingOptOut = localStorage.getItem('kpl-analytics-consent') === 'denied'; } catch (e) {}
+if (!kplTrackingOptOut) {
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -22,6 +25,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1450840233862221');
 fbq('track', 'PageView');
+}
     </script>
     <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1450840233862221&ev=PageView&noscript=1"
@@ -66,19 +70,21 @@ src="https://www.facebook.com/tr?id=1450840233862221&ev=PageView&noscript=1"
         <div class="shell privacy-content">
           <p class="privacy-updated">Last updated November 19, 2026</p>
           <h2>Website analytics</h2>
-          <p>This site offers Google Analytics 4 to understand how visitors use its pages and coaching offers. Analytics may collect information such as pages viewed, referring page, browser and device details, approximate location, and interactions such as scrolls and link clicks. Google Analytics may use cookies or similar technologies to collect and process this information. The Analytics script loads only if you choose “Allow analytics” in the privacy banner; if you decline, Analytics does not load.</p>
+          <p>This site uses Google Analytics 4 to understand how visitors use its pages and coaching offers. Analytics may collect information such as pages viewed, referring page, browser and device details, approximate location, and interactions such as scrolls and link clicks. Google Analytics may use cookies or similar technologies to collect and process this information. Analytics loads when you visit unless you opt out (see “Your choices” below).</p>
           <p>Analytics is configured with Google Signals and ad personalization disabled. The site sends event details such as the page type, the type and placement of a button clicked, the destination hostname, and whether a visitor used a share option. It does not send names, email addresses, phone numbers, requested appointment times, or the contents of form messages to Google Analytics.</p>
           <p>Share buttons open the selected social network with the canonical public page URL. Those services handle any sharing activity under their own privacy policies. The “Copy link” option copies the canonical page URL to your clipboard.</p>
           <p>For details about Google's data practices, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use its services</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
           <h2>Meta Pixel and advertising measurement</h2>
-          <p>This site uses the Meta Pixel, a measurement tool from Meta (the company behind Facebook and Instagram), to understand how well Kirkland Product Lab’s ads work. Unlike Google Analytics, the Meta Pixel loads on every page for all visitors and is not controlled by the analytics banner.</p>
+          <p>This site uses the Meta Pixel, a measurement tool from Meta (the company behind Facebook and Instagram), to understand how well Kirkland Product Lab’s ads work. The Meta Pixel loads when you visit unless you opt out (see “Your choices” below).</p>
           <p>The Meta Pixel may collect information such as the page you visit, the referring page, browser and device details, and your IP address, and it may set cookies. The site tells Meta when someone views a page, opens the booking page, books a free intro call, or successfully sends a gift request; gift requests include the offer name and its $447 price. The site’s code does not send your name, email address, phone number, requested times, or message contents to Meta.</p>
           <p>Meta may connect this information with a Facebook or Instagram account and use it to measure, target, and improve ads, under Meta’s own policies. For details, see <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta’s Privacy Policy</a>.</p>
           <h2>Booking and contact forms</h2>
           <p>The intro call calendar on the booking page is provided by Cal.com. If you book a call, the name, email address, chosen time, and any answers you enter go to Cal.com and Kevin Kirkland so the call can be scheduled, and Cal.com sends the confirmation and Google Meet link. See <a href="https://cal.com/privacy" target="_blank" rel="noopener noreferrer">Cal.com’s Privacy Policy</a>.</p>
           <p>If you send a contact message or gift request, the information you enter may include your name, email address, phone number, recipient’s name and optional email, requested delivery date, and any message. FormSubmit sends those details to Kevin Kirkland so he can respond to your inquiry. These form details are not sent to Google Analytics or Meta.</p>
-          <h2>Your choices</h2>
-          <p>Your choice is saved in this browser when storage is available, so the banner does not appear again. You can change it here: <button class="privacy-manage-analytics" type="button" data-analytics-preferences>Manage analytics choices</button>. You can also manage cookies through your browser settings. Google provides a <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">browser add-on to opt out of Google Analytics</a>. To limit how Meta uses activity from other websites, use <a href="https://accountscenter.facebook.com/info_and_permissions/off_facebook_activity" target="_blank" rel="noopener noreferrer">Your activity off Meta technologies</a> and your <a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener noreferrer">ad preferences</a>, or block third-party cookies and trackers in your browser. Cookie and privacy choices available to you may depend on your location.</p>
+          <h2 id="your-choices">Your choices</h2>
+          <p>You can opt out of Google Analytics and the Meta Pixel on this site. Your choice is saved in this browser when storage is available, so it applies to future visits from this browser and device. <button class="privacy-manage-analytics" type="button" data-tracking-optout>Opt out of analytics and ad tracking</button></p>
+          <p class="privacy-tracking-status" data-tracking-status role="status" aria-live="polite"></p>
+          <p>You can also manage cookies through your browser settings. Google provides a <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">browser add-on to opt out of Google Analytics</a>. To limit how Meta uses activity from other websites, use <a href="https://accountscenter.facebook.com/info_and_permissions/off_facebook_activity" target="_blank" rel="noopener noreferrer">Your activity off Meta technologies</a> and your <a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener noreferrer">ad preferences</a>, or block third-party cookies and trackers in your browser. Cookie and privacy choices available to you may depend on your location.</p>
           <h2>Questions</h2>
           <p>For questions about information submitted through this site, use the <a href="contact.html">contact page</a>.</p>
         </div>
