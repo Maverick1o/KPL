@@ -2489,3 +2489,9 @@ h1 span, h2 span,
   .gift-form-row-secondary { gap: 15px; }
   .gift-bottom-cta { padding-block: 53px; }
 }
+
+/* Cal.com intro call calendar (booking.html) */
+.booking-cal { min-height: 520px; margin-top: 22px; overflow: hidden; border-radius: 12px; }
+.booking-cal-fallback { margin: 0; padding: 18px 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.booking-cal-fallback a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+.booking-panel-body > .booking-form-question { max-width: none; margin-top: 18px; text-align: center; font-size: 12px; }

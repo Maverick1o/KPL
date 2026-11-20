@@ -83,25 +83,22 @@ function trackEvent(name, parameters = {}) {
   });
 }
 
-// Meta Pixel Lead: fires at most once per request type per browser session,
-// and only from a form's success path (never on load or click).
-const metaLeadsFired = new Set();
+// Meta Pixel conversions: each fires at most once per event + name per browser
+// session, and only from a completed booking or form success (never on load or click).
+const metaEventsFired = new Set();
 
-function fireMetaLead(contentName) {
-  if (metaLeadsFired.has(contentName) || typeof window.fbq !== "function") return;
-  const storageKey = `kpl-meta-lead:${contentName}`;
+function fireMetaEvent(eventName, contentName, extra = {}) {
+  const key = `${eventName}:${contentName}`;
+  if (metaEventsFired.has(key) || typeof window.fbq !== "function") return;
+  const storageKey = `kpl-meta:${key}`;
   try {
     if (window.sessionStorage.getItem(storageKey)) return;
     window.sessionStorage.setItem(storageKey, "1");
   } catch {
     // Storage can be blocked; the in-memory guard still prevents repeats on this page.
   }
-  metaLeadsFired.add(contentName);
-  window.fbq("track", "Lead", {
-    content_name: contentName,
-    value: 447.0,
-    currency: "USD",
-  });
+  metaEventsFired.add(key);
+  window.fbq("track", eventName, { content_name: contentName, ...extra });
 }
 
 function ctaPlacement(link) {
@@ -272,21 +269,6 @@ const giftRequestForm = document.querySelector("#gift-request-form");
 const giftRequestStatus = document.querySelector("#gift-request-status");
 const giftDeliveryDateInput = document.querySelector("#gift-delivery-date");
 
-const bookingRequestForm = document.querySelector("#booking-request-form");
-const bookingRequestStatus = document.querySelector("#booking-request-status");
-const preferredDateInput = document.querySelector("#preferred-date");
-const preferredStartTimeInput = document.querySelector("#preferred-start-time");
-const preferredTimeInput = document.querySelector("#preferred-time");
-const timeZoneInput = document.querySelector("#booking-time-zone-value");
-const timeZoneLabel = document.querySelector("#booking-timezone");
-const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "local time";
-
-bookingRequestForm?.addEventListener("focusin", () => {
-  if (bookingRequestForm.dataset.analyticsStarted) return;
-  bookingRequestForm.dataset.analyticsStarted = "true";
-  trackEvent("booking_request_start");
-});
-
 form?.addEventListener("focusin", () => {
   if (form.dataset.analyticsStarted) return;
   form.dataset.analyticsStarted = "true";
@@ -346,56 +328,62 @@ function localDateTimeValues(date = new Date()) {
   return { date: local.slice(0, 10), time: local.slice(11, 16) };
 }
 
-function updateBookingTimeMinimum() {
-  if (!preferredDateInput || !preferredStartTimeInput) return;
-  const earliestStart = new Date(Date.now() + 60_000);
-  earliestStart.setMinutes(Math.ceil(earliestStart.getMinutes() / 15) * 15, 0, 0);
-  const earliest = localDateTimeValues(earliestStart);
-  preferredDateInput.min = earliest.date;
-  if (preferredDateInput.value === earliest.date) preferredStartTimeInput.min = earliest.time;
-  else preferredStartTimeInput.removeAttribute("min");
+// Free intro call: Cal.com inline booking calendar on booking.html.
+const bookingCal = document.querySelector("#booking-cal");
+
+if (bookingCal) {
+  const calNamespace = "intro-call";
+  (function (C, A, L) {
+    const p = function (a, ar) { a.q.push(ar); };
+    const d = C.document;
+    C.Cal = C.Cal || function () {
+      const cal = C.Cal;
+      const ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar);
+          p(cal, ["initNamespace", namespace]);
+        } else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  window.Cal("init", calNamespace, { origin: "https://app.cal.com" });
+  const calApi = window.Cal.ns[calNamespace];
+  calApi("inline", {
+    elementOrSelector: "#booking-cal",
+    calLink: bookingCal.dataset.calLink,
+    config: { layout: "month_view" },
+  });
+  calApi("ui", { hideEventTypeDetails: true, layout: "month_view" });
+  calApi("on", {
+    action: "linkReady",
+    callback: () => bookingCal.querySelector(".booking-cal-fallback")?.remove(),
+  });
+  calApi("on", {
+    action: "bookingSuccessfulV2",
+    callback: () => {
+      if (bookingCal.dataset.bookingTracked) return;
+      bookingCal.dataset.bookingTracked = "true";
+      trackEvent("intro_call_booked", { offer: "ai_build_kickstart" });
+      trackEvent("generate_lead", { lead_type: "intro_call" });
+      fireMetaEvent("Schedule", "Free Intro Call");
+      fireMetaEvent("Lead", "Free Intro Call");
+    },
+  });
 }
-
-if (preferredDateInput) {
-  updateBookingTimeMinimum();
-  preferredDateInput.addEventListener("change", updateBookingTimeMinimum);
-  timeZoneInput.value = localTimeZone;
-  timeZoneLabel.textContent = `Times are shown in your local timezone (${localTimeZone}).`;
-}
-
-bookingRequestForm?.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const submit = bookingRequestForm.querySelector("button[type='submit']");
-  preferredTimeInput.value = `${preferredDateInput.value}T${preferredStartTimeInput.value}`;
-  const values = new FormData(bookingRequestForm);
-  const requestedTime = new Date(values.get("preferred_time"));
-  const formattedTime = new Intl.DateTimeFormat(undefined, {
-    dateStyle: "full",
-    timeStyle: "short",
-    timeZone: localTimeZone === "local time" ? undefined : localTimeZone,
-  }).format(requestedTime);
-  values.set("preferred_time_display", `${formattedTime} (${localTimeZone})`);
-
-  submit.disabled = true;
-  bookingRequestStatus.hidden = false;
-  bookingRequestStatus.classList.remove("is-error");
-  bookingRequestStatus.textContent = "Sending your request…";
-  try {
-    await emailFormSubmission(values);
-    trackEvent("booking_request_submit", { offer: "ai_build_kickstart" });
-    fireMetaLead("AI Build Kickstart Time Request");
-    bookingRequestForm.reset();
-    updateBookingTimeMinimum();
-    timeZoneInput.value = localTimeZone;
-    bookingRequestStatus.textContent = "Thanks—your time request is in. Kevin will confirm or suggest another time, then send prep details and a payment link.";
-  } catch (error) {
-    trackEvent("booking_request_error", { offer: "ai_build_kickstart" });
-    bookingRequestStatus.classList.add("is-error");
-    bookingRequestStatus.textContent = bookingRequestFailureMessage(error);
-  } finally {
-    submit.disabled = false;
-  }
-});
 
 giftRequestForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -408,7 +396,7 @@ giftRequestForm?.addEventListener("submit", async (event) => {
     await emailFormSubmission(new FormData(giftRequestForm));
     trackEvent("gift_request_submit", { offer: "ai_build_kickstart" });
     trackEvent("generate_lead", { lead_type: "gift_request" });
-    fireMetaLead("AI Build Kickstart Gift Request");
+    fireMetaEvent("Lead", "AI Build Kickstart Gift Request", { value: 447.0, currency: "USD" });
     giftRequestForm.reset();
     if (giftDeliveryDateInput) giftDeliveryDateInput.min = localDateTimeValues().date;
     giftRequestStatus.textContent = "Thanks—your gift request is in. Kevin will confirm the details and send you a payment link for $447. The gift certificate will be sent after payment.";
